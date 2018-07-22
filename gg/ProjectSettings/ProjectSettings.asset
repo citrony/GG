@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 00000000000000000000000000000000
+  productGUID: e3e56d1e6ef74fd47ba260e08ef7914a
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -670,7 +670,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
   cloudProjectId: 202bc3dd-c17c-4ff2-825a-c8fe49725537
-  projectName: 
+  projectName: gg
   organizationId: atsushi_ito
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
