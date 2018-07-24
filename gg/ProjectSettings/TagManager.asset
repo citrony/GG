@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Rock
   - Interact
+  - Rock
   layers:
   - Default
   - TransparentFX
@@ -15,13 +15,13 @@ TagManager:
   - UI
   - 
   - 
-  - Ethan
-  - MazeWalls
-  - MazeTurret
-  - MazeTurretBullet
-  - Bg
-  - FPSWeapon
+  - PostProcessing
   - GazeTarget
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -42,7 +42,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: GUI
-    uniqueID: 2379361113
     locked: 0

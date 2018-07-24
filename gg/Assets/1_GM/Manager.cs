@@ -133,9 +133,9 @@ public class Manager : MonoBehaviour {
         FindObjectOfType<ScoreUi>().InitScore();
         countDestroyEnemy = 0;
         //ライフの初期化
-        FindObjectOfType<LifeUi>().InitLife();  
+        FindObjectOfType<LifeUi>().InitLife();
         //タイムの初期化
-        FindObjectOfType<TimeUi>().InitTime();  
+        FindObjectOfType<TimeUi>().InitTime();
         //プレイヤーの初期化？？
         //FindObjectOfType<PlayerControl>().InitPlayer();
     }

@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class boss_control : MonoBehaviour {
 
+    public GameObject Explosion;
     [SerializeField] private int bosslife = 20;　//ボスのライフ
+    
 
- //   [SerializeField] private float interval = 1.0f; //点滅周期
-                                                    //    [SerializeField] private AudioClip aClip1;
-                                                    //    [SerializeField] private AudioClip aClip2;
-                                                    //    private AudioSource audioSource;
+    //   [SerializeField] private float interval = 1.0f; //点滅周期
+    //    [SerializeField] private AudioClip aClip1;
+    //    [SerializeField] private AudioClip aClip2;
+    //    private AudioSource audioSource;
 
     private GameObject _child;
 
@@ -42,7 +44,9 @@ public class boss_control : MonoBehaviour {
 
                                 BossBuster();
             }
-            if (_child.GetComponent<iTween>())
+
+            //当たってる間だけ色を変える
+ /*           if (_child.GetComponent<iTween>())
             {
                 iTween.ColorFrom(_child, iTween.Hash(
                     "color", new Color(255, 0, 0),
@@ -50,7 +54,7 @@ public class boss_control : MonoBehaviour {
                     "delay", 0.01f
                 ));
             }
-
+*/
             //            on_damage = true;
             //            StartCoroutine("Blink");
             //            on_damage = false;
@@ -71,6 +75,8 @@ public class boss_control : MonoBehaviour {
 
                                BossBuster();
             }
+
+/*
             if (_child.GetComponent<iTween>())
             {
                 iTween.ColorFrom(_child, iTween.Hash(
@@ -79,6 +85,7 @@ public class boss_control : MonoBehaviour {
                     "delay", 0.01f
                 ));
             }
+*/
         }
 
     }
@@ -86,11 +93,13 @@ public class boss_control : MonoBehaviour {
     //ボスのライフがゼロになった時の処理
        void BossBuster()
        {
-           //        instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-           // audioSource.clip = aClip2;
-           //audioSource.Play();
-           Destroy(this.gameObject);
-       }
+        //        instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        // audioSource.clip = aClip2;
+        //audioSource.Play();
+        Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        Destroy(this.gameObject);
+ //       FindObjectOfType<Manager>().Dispatch(GameState.Clear);
+    }
        
     //点滅コルーチン
  /*       IEnumerator Blink()

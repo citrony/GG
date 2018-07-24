@@ -18,7 +18,7 @@ public class EnemyControl : MonoBehaviour {
 	void Start () {
 //		intervalTime = 0;
         //プレイヤーを変数に保存
-		target = GameObject.Find("Player");
+		target = GameObject.Find("drone");
 	}
 	
 	// Update is called once per frame
@@ -59,12 +59,12 @@ public class EnemyControl : MonoBehaviour {
 			Enemylife -= 1;
 			Destroy(coll.gameObject);
 			//Debug.Log(Enemylife);
-			if (Enemylife <= 1)
+			if (Enemylife <= 0)
 			{
 				Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 				Destroy(this.gameObject);
-				FindObjectOfType<ScoreUi>().AddPoint(50);
-				FindObjectOfType<Manager>().AddDestroyEnemy();
+//				FindObjectOfType<ScoreUi>().AddPoint(50);
+//				FindObjectOfType<Manager>().AddDestroyEnemy();
 			}
 		}
 	}
@@ -75,4 +75,6 @@ public class EnemyControl : MonoBehaviour {
             Destroy(this.gameObject);
         }
     }
+
+
 }
