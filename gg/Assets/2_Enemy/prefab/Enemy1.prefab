@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4451200879215602}
   - component: {fileID: 54366214226965450}
   - component: {fileID: 135027506799291136}
-  - component: {fileID: 114515751911128426}
+  - component: {fileID: 114968449875052930}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -130,7 +130,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114515751911128426
+--- !u!114 &114968449875052930
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -138,11 +138,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1712568417290302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c811ed19c281142d2adde953ef912df2, type: 3}
+  m_Script: {fileID: 11500000, guid: fc2160b8d1ade427c82829f78d86d8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Explosion: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 2}
-  Enemylife: 3
+  Explosion: {fileID: 1996677058721964, guid: 7e4f40712646e4c7e8c8c1a1eeab4bc3, type: 2}
+  speed: 12.5
+  Enemylife: 1
 --- !u!135 &135027506799291136
 SphereCollider:
   m_ObjectHideFlags: 1

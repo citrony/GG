@@ -112,9 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2160b8d1ade427c82829f78d86d8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyBullet: {fileID: 1783474865468722, guid: 686c850d8b83e4144acc4fb5625ce0d4,
-    type: 2}
   Explosion: {fileID: 1996677058721964, guid: 7e4f40712646e4c7e8c8c1a1eeab4bc3, type: 2}
+  speed: 12.5
+  Enemylife: 1
 --- !u!135 &135924734307737188
 SphereCollider:
   m_ObjectHideFlags: 1

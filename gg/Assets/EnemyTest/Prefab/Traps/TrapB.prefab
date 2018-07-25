@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9e1ed45c1fe4353a7fa48fc7c46761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyObject: {fileID: 1145350250603442, guid: ea92eb22a23d24813b6d96440ec4d332,
+  EnemyObject: {fileID: 1839817018456916, guid: c75f4ede56296424d9c47c77329331b0,
     type: 2}
 --- !u!135 &135801947958389968
 SphereCollider:

@@ -13,11 +13,11 @@ public class Trap : MonoBehaviour {
 		//EnemyObject.SetActive(false);
 		for (int i = 0; i < 3; i++)
 		{
-			positionsR[i] = Random.Range(9.0f,18.0f);
+			positionsR[i] = Random.Range(5.0f, 15.0f);
 		}
 		for (int i = 0; i < 3; i++)
         {
-            positionsL[i] = Random.Range(-15.0f, -9.0f);
+            positionsL[i] = Random.Range(-15.0f, -5.0f);
         }
 	}
 	
@@ -31,10 +31,10 @@ public class Trap : MonoBehaviour {
 			Quaternion quat = Quaternion.Euler(0, 180, 0);
 			if (positionsR[0] >= 13.5)
 			{
-				Instantiate(EnemyObject, new Vector3(transform.position.x -100- positionsR[0], transform.position.y +12 +positionsR[1], transform.position.z + positionsR[2]), quat);
+				Instantiate(EnemyObject, new Vector3(transform.position.x -100- positionsR[0], transform.position.y -3 + positionsR[1], transform.position.z  + positionsR[2]), quat);
                 //EnemyObject.SetActive(true);
 			}else {
-				Instantiate(EnemyObject, new Vector3(transform.position.x -100+ positionsL[0], transform.position.y +12 +positionsR[1], transform.position.z + positionsL[2]), quat);
+				Instantiate(EnemyObject, new Vector3(transform.position.x -100+ positionsL[0], transform.position.y -3 + positionsR[1], transform.position.z  + positionsL[2]), quat);
 			}    
 			//Debug.Log("hit");
 		}
