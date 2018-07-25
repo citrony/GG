@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/beam_test.unity
+- path: Assets/gg_v0.5.unity
   isLoaded: 1
   isActive: 1

@@ -1,12 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player_move : MonoBehaviour
 {
     private Vector3 velocity;
     private GameObject gazeButton;
     bool start = false;
+    //RetryとExitのアイコンのイメージコンポーネント(インスペクタで設定)
+    public Image imgRetry;
+    public Image imgExit;
+    //RetryとExitのアイコンを見つめる時間
+    private float gazeImgTime;
+    private void Start()
+    {
+        gazeImgTime = 0;
+    }
 
     void Update()
     {
@@ -24,10 +34,35 @@ public class player_move : MonoBehaviour
                 if (state == Fove.Managed.EFVR_Eye.Right)
                 {
                     start = true;
+                    FindObjectOfType<Manager>().Dispatch(Manager.GameState.Playing);
+                }
+            }
+            else if (hit.transform.gameObject.tag == "Retry")
+            {
+                gazeImgTime += Time.deltaTime;
+                if(gazeImgTime <= 2)
+                {
+                    imgRetry.fillAmount += 1.0f / 2 * gazeImgTime;
+                }else if(gazeImgTime > 2)
+                {
+                    FindObjectOfType<Manager>().Dispatch(Manager.GameState.Opening);
+                }
+            }
+            else if (hit.transform.gameObject.tag == "Exit")
+            {
+                gazeImgTime += Time.deltaTime;
+                if (gazeImgTime <= 2)
+                {
+                    imgExit.fillAmount += 1.0f / 2 * gazeImgTime;
+                }
+                else if (gazeImgTime > 2)
+                {
+                    FindObjectOfType<Manager>().Dispatch(Manager.GameState.Opening);
                 }
             }
             else
             {
+                gazeImgTime = 0;
                 if (gazeButton != null)
                 {
                     gazeButton.GetComponent<SpriteRenderer>().color = Color.white;
@@ -36,11 +71,10 @@ public class player_move : MonoBehaviour
             }
         }
 
-        if(start == true)
+        if (start == true)
         {
             velocity = new Vector3(-20, 0, 0);
             transform.localPosition += velocity * Time.fixedDeltaTime;
         }
     }
 }
-

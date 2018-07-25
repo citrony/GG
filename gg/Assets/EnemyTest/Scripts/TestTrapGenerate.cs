@@ -29,7 +29,7 @@ public class TestTrapGenerate : MonoBehaviour
             Instantiate(TrapC, new Vector3(841.4f -20- 70 * i, 0, 30.3f), Quaternion.identity);
         }
         //TrapBossの生成
-        Instantiate(TrapBoss, new Vector3(-800, 1, 30.3f), Quaternion.identity);
+        Instantiate(TrapBoss, new Vector3(15, 1, 30.3f), Quaternion.identity);
     }
 }
 

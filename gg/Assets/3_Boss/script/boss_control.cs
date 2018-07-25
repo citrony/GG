@@ -36,6 +36,7 @@ public class boss_control : MonoBehaviour {
 //            audioSource.Play();
             bosslife -= 1;
             Destroy(coll.gameObject);
+            Debug.Log(bosslife);
             if(bosslife <= 0)
             {
 //                audioSource.clip = aClip2;
@@ -67,7 +68,8 @@ public class boss_control : MonoBehaviour {
 //            audioSource.Play();
             bosslife -= 3;
             Destroy(coll.gameObject);
-            if(bosslife <= 0)
+            Debug.Log(bosslife);
+            if (bosslife <= 0)
             {
 //                audioSource.clip = aClip2;
 //                audioSource.Play();
@@ -98,7 +100,8 @@ public class boss_control : MonoBehaviour {
         //audioSource.Play();
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         Destroy(this.gameObject);
- //       FindObjectOfType<Manager>().Dispatch(GameState.Clear);
+        FindObjectOfType<ScoreUi>().AddPoint(50);
+        FindObjectOfType<Manager>().Dispatch(Manager.GameState.Clear);
     }
        
     //点滅コルーチン

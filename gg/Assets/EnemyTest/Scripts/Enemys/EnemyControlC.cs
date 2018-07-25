@@ -62,12 +62,11 @@ public class EnemyControlC : MonoBehaviour
             Enemylife -= 1;
             Destroy(coll.gameObject);
             //Debug.Log(Enemylife);
-            if (Enemylife <= 1)
+            if (Enemylife <= 0)
             {
                 Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                 Destroy(this.gameObject);
                 FindObjectOfType<ScoreUi>().AddPoint(50);
-                FindObjectOfType<Manager>().AddDestroyEnemy();
             }
         }
     }

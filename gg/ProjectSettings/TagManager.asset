@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Interact
   - Rock
+  - PlayerBullet
+  - PlayerCharge
+  - Enemy
+  - Retry
+  - Exit
   layers:
   - Default
   - TransparentFX
