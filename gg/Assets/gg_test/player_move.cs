@@ -30,6 +30,7 @@ public class player_move : MonoBehaviour
             {
                 gazeButton = hit.transform.gameObject;
                 gazeButton.transform.localScale = new Vector3(1.3f, 1.3f, 1.10f);
+                gazeButton.GetComponent<SpriteRenderer>().color = Color.red;
                 var state = FoveInterface.CheckEyesClosed();
                 if (state == Fove.Managed.EFVR_Eye.Right || state == Fove.Managed.EFVR_Eye.Left)
                 {
