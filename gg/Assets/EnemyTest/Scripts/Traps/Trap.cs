@@ -13,7 +13,7 @@ public class Trap : MonoBehaviour {
 		//EnemyObject.SetActive(false);
 		for (int i = 0; i < 3; i++)
 		{
-			positionsR[i] = Random.Range(5.0f, 15.0f);
+			positionsR[i] = Random.Range(5.0f, 12.0f);
 		}
 		for (int i = 0; i < 3; i++)
         {
@@ -29,7 +29,7 @@ public class Trap : MonoBehaviour {
 	{
 		if(coll.gameObject.tag == "Player"){
 			Quaternion quat = Quaternion.Euler(0, 180, 0);
-			if (positionsR[0] >= 13.5)
+			if (positionsR[0] >= 8.5)
 			{
 				Instantiate(EnemyObject, new Vector3(transform.position.x -100- positionsR[0], transform.position.y -3 + positionsR[1], transform.position.z  + positionsR[2]), quat);
                 //EnemyObject.SetActive(true);

@@ -100,7 +100,7 @@ public class boss_control : MonoBehaviour {
         //audioSource.Play();
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         Destroy(this.gameObject);
-        FindObjectOfType<ScoreUi>().AddPoint(500);
+        FindObjectOfType<ScoreUi>().AddPoint(800);
         FindObjectOfType<Manager>().Dispatch(Manager.GameState.Clear);
     }
        
