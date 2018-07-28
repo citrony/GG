@@ -6,6 +6,7 @@ public class EnemyRotate5 : MonoBehaviour
 {
     //public GameObject EnemyBullet;
     public GameObject Explosion;
+    private AudioSource audioSource;
     //public GameObject target;
 
 
@@ -17,7 +18,7 @@ public class EnemyRotate5 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -80,6 +81,7 @@ public class EnemyRotate5 : MonoBehaviour
     void EnemyBuster()
     {
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        FindObjectOfType<Laser4>().SeExplosion();
         Destroy(this.gameObject);
         FindObjectOfType<ScoreUi>().AddPoint(70);
         //FindObjectOfType<Manager>().AddDestroyEnemy();

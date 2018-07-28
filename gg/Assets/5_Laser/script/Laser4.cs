@@ -10,7 +10,12 @@ public class Laser4 : MonoBehaviour
     [SerializeField] private GameObject rPrefab;
     [SerializeField] private GameObject lPrefab;
     [SerializeField] private GameObject cPrefab;
-
+    //AudioSourceコンポーネント
+    private AudioSource audioSource;
+    //発射音
+    public AudioClip soundShooting;
+    //爆発音
+    public AudioClip soundExplosion;
 
     private GameObject rightLayser;
     private GameObject leftLayser;
@@ -35,6 +40,8 @@ public class Laser4 : MonoBehaviour
 
         //チャージカウントゼロをセット
         c_count = 0.0f;
+        //AudioSourceコンポーネント
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -72,6 +79,8 @@ public class Laser4 : MonoBehaviour
 
                     //leftLayser.transform.parent = null;
                     Destroy(leftLayser, 20.0f);
+                    //発射音
+                    audioSource.Play();
                 }
                 break;
 
@@ -97,6 +106,8 @@ public class Laser4 : MonoBehaviour
 
                     //rightLayser.transform.parent = null;
                     Destroy(rightLayser, 20.0f);
+                    //発射音
+                    audioSource.Play();
                 }
                 break;
 
@@ -123,6 +134,8 @@ public class Laser4 : MonoBehaviour
                     //chargeLayser.transform.parent = null;
                     Destroy(chargeLayser, 20.0f);
                     c_count = 0.0f;
+                    //発射音
+                    audioSource.Play();
                 }
                 
 
@@ -159,5 +172,13 @@ public class Laser4 : MonoBehaviour
 
 
         m_state = state;
+    }
+    //爆発音がなる
+    public void SeExplosion()
+    {
+        audioSource.clip = soundExplosion;
+        audioSource.Play();
+        //Debug.Log("ExplosionSoundPlay");
+        audioSource.clip = soundShooting;
     }
 }
