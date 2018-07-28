@@ -12,10 +12,17 @@ public class Laser4 : MonoBehaviour
     [SerializeField] private GameObject cPrefab;
     //AudioSourceコンポーネント
     private AudioSource audioSource;
-    //発射音
-    public AudioClip soundShooting;
-    //爆発音
+    //レーザー発射音
+    public AudioClip soundLaser;
+    //チャージ発射音
+    public AudioClip soundChargeShot;
+    //敵爆発音
     public AudioClip soundExplosion;
+    //ボスダメージ
+    public AudioClip soundDamage;
+    //ボス爆発音
+    public AudioClip soundExplosion1000;
+
 
     private GameObject rightLayser;
     private GameObject leftLayser;
@@ -42,7 +49,10 @@ public class Laser4 : MonoBehaviour
         c_count = 0.0f;
         //AudioSourceコンポーネント
         audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.clip = soundShooting;
+        //audioSource.clip = soundShooting;
+        //AudioSource[] audioSources = GetComponents<AudioSource>();
+        //audioSources[0].clip = soundLaser;
+        //audioSources[1].clip = soundChargeShot;
     }
 
     // Update is called once per frame
@@ -77,11 +87,13 @@ public class Laser4 : MonoBehaviour
                     leftLayser.transform.parent = GameObject.Find("Fove Rig").transform;
                     //leftLayser.transform.parent = this.transform;
 
+                    //発射音
+                    audioSource.clip = soundLaser;
+                    audioSource.PlayOneShot(soundLaser,0.5f);
 
                     //leftLayser.transform.parent = null;
                     Destroy(leftLayser, 20.0f);
-                    //発射音
-                    audioSource.Play();
+                    
                 }
                 break;
 
@@ -105,16 +117,21 @@ public class Laser4 : MonoBehaviour
                     rightLayser.transform.parent = GameObject.Find("Fove Rig").transform;
                     //rightLayser.transform.parent = this.transform;
 
+                    //発射音
+                    audioSource.clip = soundLaser;
+                    audioSource.PlayOneShot(soundLaser,0.5f);
+
                     //rightLayser.transform.parent = null;
                     Destroy(rightLayser, 20.0f);
-                    //発射音
-                    audioSource.Play();
+                    
                 }
                 break;
 
             case Fove.Managed.EFVR_Eye.Neither:
                 //両目開いてたら開いてた秒数分チャージ
                 c_count += Time.deltaTime;
+
+
 
                 //もし前のステートが両目開いてて、かつ3秒以上開いてたらチャージビーム放出→チャージカウントゼロ
                 if (m_state == Fove.Managed.EFVR_Eye.Neither && c_count >= 2.0f)
@@ -132,11 +149,14 @@ public class Laser4 : MonoBehaviour
                     chargeLayser.transform.parent = GameObject.Find("Fove Rig").transform;
                     //chargeLayser.transform.parent = this.transform;
 
+                    //発射音
+                    audioSource.clip = soundChargeShot;
+                    audioSource.PlayOneShot(soundChargeShot, 0.5f);
+
                     //chargeLayser.transform.parent = null;
                     Destroy(chargeLayser, 20.0f);
                     c_count = 0.0f;
-                    //発射音
-                    audioSource.Play();
+
                 }
                 
 
@@ -174,12 +194,28 @@ public class Laser4 : MonoBehaviour
 
         m_state = state;
     }
-    //爆発音がなる
+    //敵爆発音がなる
     public void SeExplosion()
     {
-        //audioSource.clip = soundExplosion;
-        audioSource.PlayOneShot(soundExplosion);
-       // Debug.Log("ExplosionSoundPlay");
-        audioSource.clip = soundShooting;
+        audioSource.clip = soundExplosion;
+        audioSource.PlayOneShot(soundExplosion, 0.5f);
+      
+        // Debug.Log("ExplosionSoundPlay");
+        //audioSource.clip = soundShooting;
     }
+
+    //ボスダメージ音がなる
+    public void SeDamage()
+    {
+        audioSource.clip = soundDamage;
+        audioSource.PlayOneShot(soundDamage, 0.5f);
+    }
+
+    //ボス爆発音がなる
+    public void SeExplosion1000()
+    {
+        audioSource.clip = soundExplosion1000;
+        audioSource.PlayOneShot(soundExplosion1000, 0.5f);
+    }
+
 }

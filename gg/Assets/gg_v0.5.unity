@@ -46127,8 +46127,11 @@ MonoBehaviour:
   rPrefab: {fileID: 1490844418339076, guid: 3dcef1ac0f070af4c8753c774b2ae4ff, type: 2}
   lPrefab: {fileID: 1960342190297224, guid: 3aa785e4be0c29b429f210cbec8ffa8d, type: 2}
   cPrefab: {fileID: 1190452724230392, guid: 474329ecb1a84c04fb0718f613d03d4c, type: 2}
-  soundShooting: {fileID: 8300000, guid: 2fff7c7ee54500344ad33d0533d7146e, type: 3}
+  soundLaser: {fileID: 8300000, guid: b4945ba19e0b5514e92fb39257b173bc, type: 3}
+  soundChargeShot: {fileID: 8300000, guid: 61c17d67b824ee048b995f47336069cd, type: 3}
   soundExplosion: {fileID: 8300000, guid: 680a6efd3f8da3842b98d73461167e70, type: 3}
+  soundDamage: {fileID: 8300000, guid: 81c4c8d126c30454480666eee65894d5, type: 3}
+  soundExplosion1000: {fileID: 8300000, guid: b41690d26209e67419686d484976dc4e, type: 3}
 --- !u!114 &722250889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46265,7 +46268,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

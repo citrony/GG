@@ -32,17 +32,12 @@ public class boss_control : MonoBehaviour {
         //レーザーと当たった時の処理
         if(coll.gameObject.tag == "PlayerBullet")
         {
-//            audioSource.clip = aClip1;
-//            audioSource.Play();
+            FindObjectOfType<Laser4>().SeDamage();
             bosslife -= 1;
             Destroy(coll.gameObject);
             Debug.Log(bosslife);
             if(bosslife <= 0)
             {
-//                audioSource.clip = aClip2;
-//                audioSource.Play();
-                //Destroy(this.gameObject);
-
                                 BossBuster();
             }
 
@@ -64,17 +59,12 @@ public class boss_control : MonoBehaviour {
         //チャージショットと当たった時の処理
         if (coll.gameObject.tag == "PlayerCharge")
         {
-//            audioSource.clip = aClip1;
-//            audioSource.Play();
+            FindObjectOfType<Laser4>().SeDamage();
             bosslife -= 3;
             Destroy(coll.gameObject);
             Debug.Log(bosslife);
             if (bosslife <= 0)
             {
-//                audioSource.clip = aClip2;
-//                audioSource.Play();
-                //Destroy(this.gameObject);
-
                                BossBuster();
             }
 
@@ -95,10 +85,8 @@ public class boss_control : MonoBehaviour {
     //ボスのライフがゼロになった時の処理
        void BossBuster()
        {
-        //        instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        // audioSource.clip = aClip2;
-        //audioSource.Play();
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        FindObjectOfType<Laser4>().SeExplosion1000();
         Destroy(this.gameObject);
         FindObjectOfType<ScoreUi>().AddPoint(800);
         FindObjectOfType<Manager>().Dispatch(Manager.GameState.Clear);

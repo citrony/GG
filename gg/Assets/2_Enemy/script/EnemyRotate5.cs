@@ -6,7 +6,7 @@ public class EnemyRotate5 : MonoBehaviour
 {
     //public GameObject EnemyBullet;
     public GameObject Explosion;
-    private AudioSource audioSource;
+    //private AudioSource audioSource;
     //public GameObject target;
 
 
@@ -18,7 +18,7 @@ public class EnemyRotate5 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        audioSource = gameObject.GetComponent<AudioSource>();
+    //    audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
