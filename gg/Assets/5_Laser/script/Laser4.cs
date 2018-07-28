@@ -42,6 +42,7 @@ public class Laser4 : MonoBehaviour
         c_count = 0.0f;
         //AudioSourceコンポーネント
         audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.clip = soundShooting;
     }
 
     // Update is called once per frame
@@ -176,9 +177,9 @@ public class Laser4 : MonoBehaviour
     //爆発音がなる
     public void SeExplosion()
     {
-        audioSource.clip = soundExplosion;
-        audioSource.Play();
-        //Debug.Log("ExplosionSoundPlay");
+        //audioSource.clip = soundExplosion;
+        audioSource.PlayOneShot(soundExplosion);
+       // Debug.Log("ExplosionSoundPlay");
         audioSource.clip = soundShooting;
     }
 }
