@@ -10,7 +10,9 @@ public class Laser4 : MonoBehaviour
     [SerializeField] private GameObject rPrefab;
     [SerializeField] private GameObject lPrefab;
     [SerializeField] private GameObject cPrefab;
-    //AudioSourceコンポーネント
+
+    
+    /*//AudioSourceコンポーネント
     private AudioSource audioSource;
     //レーザー発射音
     public AudioClip soundLaser;
@@ -22,7 +24,7 @@ public class Laser4 : MonoBehaviour
     public AudioClip soundDamage;
     //ボス爆発音
     public AudioClip soundExplosion1000;
-
+    */
 
     private GameObject rightLayser;
     private GameObject leftLayser;
@@ -48,7 +50,7 @@ public class Laser4 : MonoBehaviour
         //チャージカウントゼロをセット
         c_count = 0.0f;
         //AudioSourceコンポーネント
-        audioSource = gameObject.GetComponent<AudioSource>();
+        //audioSource = gameObject.GetComponent<AudioSource>();
         //audioSource.clip = soundShooting;
         //AudioSource[] audioSources = GetComponents<AudioSource>();
         //audioSources[0].clip = soundLaser;
@@ -88,8 +90,9 @@ public class Laser4 : MonoBehaviour
                     //leftLayser.transform.parent = this.transform;
 
                     //発射音
-                    audioSource.clip = soundLaser;
-                    audioSource.PlayOneShot(soundLaser,0.5f);
+                    //                    audioSource.clip = soundChargeShot;
+                    //                    audioSource.PlayOneShot(soundChargeShot, 0.5f);
+                    FindObjectOfType<SEController>().SeLaser();
 
                     //leftLayser.transform.parent = null;
                     Destroy(leftLayser, 20.0f);
@@ -118,8 +121,9 @@ public class Laser4 : MonoBehaviour
                     //rightLayser.transform.parent = this.transform;
 
                     //発射音
-                    audioSource.clip = soundLaser;
-                    audioSource.PlayOneShot(soundLaser,0.5f);
+                    //                    audioSource.clip = soundChargeShot;
+                    //                    audioSource.PlayOneShot(soundChargeShot, 0.5f);
+                    FindObjectOfType<SEController>().SeLaser();
 
                     //rightLayser.transform.parent = null;
                     Destroy(rightLayser, 20.0f);
@@ -150,8 +154,9 @@ public class Laser4 : MonoBehaviour
                     //chargeLayser.transform.parent = this.transform;
 
                     //発射音
-                    audioSource.clip = soundChargeShot;
-                    audioSource.PlayOneShot(soundChargeShot, 0.5f);
+                    //                    audioSource.clip = soundChargeShot;
+                    //                    audioSource.PlayOneShot(soundChargeShot, 0.5f);
+                    FindObjectOfType<SEController>().SeChargeShot();
 
                     //chargeLayser.transform.parent = null;
                     Destroy(chargeLayser, 20.0f);
@@ -194,6 +199,7 @@ public class Laser4 : MonoBehaviour
 
         m_state = state;
     }
+    /*
     //敵爆発音がなる
     public void SeExplosion()
     {
@@ -217,5 +223,6 @@ public class Laser4 : MonoBehaviour
         audioSource.clip = soundExplosion1000;
         audioSource.PlayOneShot(soundExplosion1000, 0.5f);
     }
+    */
 
 }

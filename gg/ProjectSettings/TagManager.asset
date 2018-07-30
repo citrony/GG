@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - Retry
   - Exit
+  - Follower
+  - Bossmate
   layers:
   - Default
   - TransparentFX

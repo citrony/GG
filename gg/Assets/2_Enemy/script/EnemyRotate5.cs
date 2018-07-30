@@ -81,7 +81,7 @@ public class EnemyRotate5 : MonoBehaviour
     void EnemyBuster()
     {
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        FindObjectOfType<Laser4>().SeExplosion();
+        FindObjectOfType<SEController>().SeExplosion();
         Destroy(this.gameObject);
         FindObjectOfType<ScoreUi>().AddPoint(70);
         //FindObjectOfType<Manager>().AddDestroyEnemy();

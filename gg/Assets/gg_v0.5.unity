@@ -46074,6 +46074,7 @@ GameObject:
   - component: {fileID: 722250887}
   - component: {fileID: 722250891}
   - component: {fileID: 722250892}
+  - component: {fileID: 722250893}
   m_Layer: 0
   m_Name: Fove Interface
   m_TagString: MainCamera
@@ -46127,11 +46128,6 @@ MonoBehaviour:
   rPrefab: {fileID: 1490844418339076, guid: 3dcef1ac0f070af4c8753c774b2ae4ff, type: 2}
   lPrefab: {fileID: 1960342190297224, guid: 3aa785e4be0c29b429f210cbec8ffa8d, type: 2}
   cPrefab: {fileID: 1190452724230392, guid: 474329ecb1a84c04fb0718f613d03d4c, type: 2}
-  soundLaser: {fileID: 8300000, guid: b4945ba19e0b5514e92fb39257b173bc, type: 3}
-  soundChargeShot: {fileID: 8300000, guid: 61c17d67b824ee048b995f47336069cd, type: 3}
-  soundExplosion: {fileID: 8300000, guid: 680a6efd3f8da3842b98d73461167e70, type: 3}
-  soundDamage: {fileID: 8300000, guid: 81c4c8d126c30454480666eee65894d5, type: 3}
-  soundExplosion1000: {fileID: 8300000, guid: b41690d26209e67419686d484976dc4e, type: 3}
 --- !u!114 &722250889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46308,6 +46304,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &722250893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 722250885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd7455f69d51b64f9c86314ad0ed71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundLaser: {fileID: 8300000, guid: b4945ba19e0b5514e92fb39257b173bc, type: 3}
+  soundChargeShot: {fileID: 8300000, guid: 61c17d67b824ee048b995f47336069cd, type: 3}
+  soundExplosion: {fileID: 8300000, guid: 680a6efd3f8da3842b98d73461167e70, type: 3}
+  soundDamage: {fileID: 8300000, guid: 81c4c8d126c30454480666eee65894d5, type: 3}
+  soundExplosion1000: {fileID: 8300000, guid: b41690d26209e67419686d484976dc4e, type: 3}
 --- !u!1 &722561718
 GameObject:
   m_ObjectHideFlags: 0
@@ -73557,7 +73569,7 @@ GameObject:
   - component: {fileID: 1182862559}
   - component: {fileID: 1182862558}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: EnemyGenerater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
