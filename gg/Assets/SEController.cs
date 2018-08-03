@@ -12,8 +12,14 @@ public class SEController : MonoBehaviour {
     public AudioClip soundChargeShot;
     //敵爆発音
     public AudioClip soundExplosion;
+    //バリア反射音
+    public AudioClip soundBarrierReflec;
+    //バリアダメージ
+    public AudioClip soundBarrierDamage;
+    //バリア破壊音
+    public AudioClip soundBarrierBreak;
     //ボスダメージ
-    public AudioClip soundDamage;
+    public AudioClip soundBossDamage;
     //ボス爆発音
     public AudioClip soundExplosion1000;
 
@@ -58,11 +64,32 @@ public class SEController : MonoBehaviour {
         //audioSource.clip = soundShooting;
     }
 
-    //ボスダメージ音がなる
-    public void SeDamage()
+    //バリア反射音がなる
+    public void SeBarrierReflec()
     {
-        audioSource.clip = soundDamage;
-        audioSource.PlayOneShot(soundDamage, 0.5f);
+        audioSource.clip = soundBarrierReflec;
+        audioSource.PlayOneShot(soundBarrierReflec, 0.5f);
+    }
+
+    //バリアダメージ音がなる
+    public void SeBarrierDamage()
+    {
+        audioSource.clip = soundBarrierDamage;
+        audioSource.PlayOneShot(soundBarrierDamage, 0.5f);
+    }
+
+    //バリア破壊音がなる
+    public void SeBarrierBreak()
+    {
+        audioSource.clip = soundBarrierBreak;
+        audioSource.PlayOneShot(soundBarrierBreak, 0.5f);
+    }
+
+    //ボスダメージ音がなる
+    public void SeBossDamage()
+    {
+        audioSource.clip = soundBossDamage;
+        audioSource.PlayOneShot(soundBossDamage, 0.5f);
     }
 
     //ボス爆発音がなる

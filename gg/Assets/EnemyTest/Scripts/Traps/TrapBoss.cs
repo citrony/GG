@@ -47,14 +47,18 @@ public class TrapBoss : MonoBehaviour
             //BGMをかえる
             FindObjectOfType<TestSoundManager>().ChangeBgm();
             //ボスを生成
-            Quaternion quat = Quaternion.Euler(20, 90, 0);
+            // Quaternion quat = Quaternion.Euler(20, 90, 0);
+            Quaternion quat = Quaternion.Euler(0, 0, 0);
             if (positionsR[0] >= 3)
             {
-                Instantiate(BossObject, new Vector3(transform.position.x - 500 + positionsR[0], transform.position.y + 100 + positionsR[1], transform.position.z + 100+ positionsR[2]), quat);
+                // Instantiate(BossObject, new Vector3(transform.position.x - 500 + positionsR[0], transform.position.y + 100 + positionsR[1], transform.position.z + 100+ positionsR[2]), quat);
+                Instantiate(BossObject, new Vector3(transform.position.x - 300 + positionsR[0], transform.position.y + 50 + positionsR[1], transform.position.z + positionsR[2]), quat);
             }
             else
             {
-                Instantiate(BossObject, new Vector3(transform.position.x - 500 - positionsL[0], transform.position.y + 100 - positionsL[1], transform.position.z + 100 + positionsL[2]), quat);
+                // Instantiate(BossObject, new Vector3(transform.position.x - 500 - positionsL[0], transform.position.y + 100 - positionsL[1], transform.position.z + 100 + positionsL[2]), quat);
+                Instantiate(BossObject, new Vector3(transform.position.x - 300 - positionsL[0], transform.position.y + 50 - positionsL[1], transform.position.z + positionsL[2]), quat);
+
             }
             Debug.Log("BossAppeaqrance");
         }

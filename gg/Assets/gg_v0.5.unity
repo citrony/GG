@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.40221128, g: 0.34777546, b: 0.28114277, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -46318,7 +46318,10 @@ MonoBehaviour:
   soundLaser: {fileID: 8300000, guid: b4945ba19e0b5514e92fb39257b173bc, type: 3}
   soundChargeShot: {fileID: 8300000, guid: 61c17d67b824ee048b995f47336069cd, type: 3}
   soundExplosion: {fileID: 8300000, guid: 680a6efd3f8da3842b98d73461167e70, type: 3}
-  soundDamage: {fileID: 8300000, guid: 81c4c8d126c30454480666eee65894d5, type: 3}
+  soundBarrierReflec: {fileID: 8300000, guid: 573da8ca4bc8c614c9753ca3a62fd344, type: 3}
+  soundBarrierDamage: {fileID: 8300000, guid: 86d6b64b2b2882c45969f21c3a927038, type: 3}
+  soundBarrierBreak: {fileID: 8300000, guid: eb562faa5b4045441873af7e78001b70, type: 3}
+  soundBossDamage: {fileID: 8300000, guid: 54c8c50165d7ded4499875d546fc1204, type: 3}
   soundExplosion1000: {fileID: 8300000, guid: b41690d26209e67419686d484976dc4e, type: 3}
 --- !u!1 &722561718
 GameObject:
@@ -76970,6 +76973,11 @@ Prefab:
     - target: {fileID: 4283909255991748, guid: 40b9d66f41c7a4744949097f4b71fe0d, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 102174688033385356, guid: 40b9d66f41c7a4744949097f4b71fe0d,
+        type: 2}
+      propertyPath: m_Text
+      value: Time:30/30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40b9d66f41c7a4744949097f4b71fe0d, type: 2}

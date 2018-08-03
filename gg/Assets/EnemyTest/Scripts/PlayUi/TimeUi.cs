@@ -13,7 +13,7 @@ public class TimeUi : MonoBehaviour
     void Start()
     {
         timeUiText = this.GetComponent<TextMesh>();
-        time = 20.0f;
+        time = 30.0f;
         oldTime = 0.0f;
     }
 
@@ -24,7 +24,7 @@ public class TimeUi : MonoBehaviour
         time -= Time.deltaTime;
         if (time != oldTime)
         {
-            timeUiText.text = "Time:" + time.ToString() + "/20";
+            timeUiText.text = "Time:" + time.ToString() + "/30";
         }
         oldTime = time;
 
@@ -37,6 +37,6 @@ public class TimeUi : MonoBehaviour
     //タイムの初期化
     public void InitTime()
     {
-        time = 20;
+        time = 30;
     }
 }

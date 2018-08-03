@@ -20,7 +20,7 @@ public class boss_control : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Bossが振動する
-            iTween.ShakePosition(this.gameObject, iTween.Hash("x", 2f, "y", 2f, "z", 2f, "time", 1.0f * Time.deltaTime));
+          //iTween.ShakePosition(this.gameObject, iTween.Hash("x", 2f, "y", 2f, "z", 2f, "time", 1.0f * Time.deltaTime));
     }
 
     void OnTriggerEnter(Collider coll)
@@ -28,7 +28,7 @@ public class boss_control : MonoBehaviour {
         //レーザーと当たった時の処理
         if(coll.gameObject.tag == "PlayerBullet")
         {
-            FindObjectOfType<SEController>().SeDamage();
+            FindObjectOfType<SEController>().SeBossDamage();
             bosslife -= 1;
             Destroy(coll.gameObject);
             StartCoroutine("Tenmetsu");
@@ -44,7 +44,7 @@ public class boss_control : MonoBehaviour {
         //チャージショットと当たった時の処理
         if (coll.gameObject.tag == "PlayerCharge")
         {
-            FindObjectOfType<SEController>().SeDamage();
+            FindObjectOfType<SEController>().SeBossDamage();
             bosslife -= 3;
             Destroy(coll.gameObject);
             StartCoroutine("Tenmetsu");

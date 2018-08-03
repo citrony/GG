@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fb1a37b539f4395be42f4ef487aeaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossObject: {fileID: 1013047234743140, guid: 7d64322cabb993841859d6a76c0cf2ed, type: 2}
+  BossObject: {fileID: 1779855892627160, guid: 13933043007feb548ba31892ce4c86e3, type: 2}
 --- !u!135 &135953619353370894
 SphereCollider:
   m_ObjectHideFlags: 1
