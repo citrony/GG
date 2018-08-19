@@ -84,19 +84,15 @@ public class player_move : MonoBehaviour
                     transform.localPosition += velocity * Time.fixedDeltaTime;
 
                 }
-                if ((p.x < 500f) && (p.x >= -300f))
+                if ((p.x < 500f) && (p.x >= -1060f))
                 {
                     velocity = new Vector3(-30, 0, 0);
                     transform.localPosition += velocity * Time.fixedDeltaTime;
                 }
-                if ((p.x < -300f) && (p.x >= -1000f))
+
+                if (p.x < -1060f)
                 {
-                    velocity = new Vector3(-40, 0, 0);
-                    transform.localPosition += velocity * Time.fixedDeltaTime;
-                }
-                if (p.x < -1000f)
-                {
-                    velocity = new Vector3(-3, 0, 0);
+                    velocity = new Vector3(-2, 0, 0);
                     transform.localPosition += velocity * Time.fixedDeltaTime;
                 }
 

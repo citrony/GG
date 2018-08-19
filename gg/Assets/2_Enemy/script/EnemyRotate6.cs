@@ -10,15 +10,16 @@ public class EnemyRotate6 : MonoBehaviour
     //public GameObject target;
 
 
+
     //[SerializeField] private float speed = 8.7f;
     //float intervalTime;
-    [SerializeField] private int Enemylife = 3;
+    [SerializeField] private int Enemylife = 1;
 
 
     // Use this for initialization
     void Start()
     {
-    //    audioSource = gameObject.GetComponent<AudioSource>();
+        //    audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class EnemyRotate6 : MonoBehaviour
         //transform.Translate(0, 0, 1 * speed);
         //Enemyのプレイヤーを目指した移動  
         //enemyの回転
-        transform.Rotate(0f, 2.5f, 0f);
+        transform.Rotate(0f, 2f, 4f);
 
         /*      //たまの回転の制御
                 Quaternion quat = Quaternion.Euler(0, 180, 0);
@@ -83,8 +84,9 @@ public class EnemyRotate6 : MonoBehaviour
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         FindObjectOfType<SEController>().SeExplosion();
         Destroy(this.gameObject);
-        FindObjectOfType<ScoreUi>().AddPoint(200);
+        FindObjectOfType<ScoreUi>().AddPoint(50);
         //FindObjectOfType<Manager>().AddDestroyEnemy();
+
     }
 
 

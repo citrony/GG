@@ -9,7 +9,7 @@ public class EnemyControlF : MonoBehaviour
     //public GameObject target;
 
 
-    [SerializeField] private float speed = 5.7f;
+    [SerializeField] private float speed = 4.8f;
     //float intervalTime;
     //[SerializeField] private int Enemylife = 2;
 
@@ -69,3 +69,4 @@ public class EnemyControlF : MonoBehaviour
         }
     }
 }
+

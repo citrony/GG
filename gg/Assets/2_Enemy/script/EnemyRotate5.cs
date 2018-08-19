@@ -28,7 +28,7 @@ public class EnemyRotate5 : MonoBehaviour
         //transform.Translate(0, 0, 1 * speed);
         //Enemyのプレイヤーを目指した移動  
         //enemyの回転
-        transform.Rotate(4f, 0f, 0f);
+        transform.Rotate(2f, 0f, 0f);
 
         /*      //たまの回転の制御
                 Quaternion quat = Quaternion.Euler(0, 180, 0);
@@ -83,7 +83,7 @@ public class EnemyRotate5 : MonoBehaviour
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         FindObjectOfType<SEController>().SeExplosion();
         Destroy(this.gameObject);
-        FindObjectOfType<ScoreUi>().AddPoint(70);
+        FindObjectOfType<ScoreUi>().AddPoint(60);
         //FindObjectOfType<Manager>().AddDestroyEnemy();
     }
 
