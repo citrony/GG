@@ -44,8 +44,11 @@ public class TrapBoss : MonoBehaviour
         {
             //タイマーを活性化
             TimeUi.SetActive(true);
-            //BGMをかえる
-            FindObjectOfType<TestSoundManager>().ChangeBgm();
+
+            //ボス戦
+            FindObjectOfType<NaviController>().ChangeNavi8();
+            FindObjectOfType<TestSoundManager>().ChangeBgm6();
+
             //ボスを生成
             // Quaternion quat = Quaternion.Euler(20, 90, 0);
             Quaternion quat = Quaternion.Euler(0, 0, 0);

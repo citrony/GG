@@ -58,7 +58,8 @@ public class barrier_control : MonoBehaviour {
         Instantiate(Erosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         FindObjectOfType<SEController>().SeBarrierBreak();
         Destroy(this.gameObject);
-        FindObjectOfType<ScoreUi>().AddPoint(100);
+        FindObjectOfType<ScoreUi>().AddPoint(200);
+        FindObjectOfType<NaviController>().ChangeNavi9();
     }
 
     //点滅コルーチン

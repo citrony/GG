@@ -69,7 +69,36 @@ public class Manager : MonoBehaviour
         nowScore = 0;
         //敵の存在の確認
         enemy = GameObject.Find("Enemy");
+        StartCoroutine("StartNavi");
     }
+
+    //スタートNavi
+    private IEnumerator StartNavi()
+    {
+        yield return new WaitForSeconds(5.0f);
+        FindObjectOfType<NaviController>().ChangeNavi1();
+    }
+
+    //ゲームクリアNavi→アプリ終了
+    private IEnumerator ClearNavi()
+    {
+        FindObjectOfType<NaviController>().ChangeNavi10();
+        FindObjectOfType<TestSoundManager>().ChangeBgm7();
+        yield return new WaitForSeconds(5.0f);
+        FindObjectOfType<TestSoundManager>().ChangeBgm8();
+        yield return new WaitForSeconds(20.0f);
+        Application.Quit();
+    }
+
+    //ゲームオーバーTimeUp→アプリ終了
+    private IEnumerator GameOverTNavi()
+    {
+        FindObjectOfType<NaviController>().ChangeNavi12();
+        FindObjectOfType<TestSoundManager>().ChangeBgm9();
+        yield return new WaitForSeconds(15.0f);
+        Application.Quit();
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -187,6 +216,7 @@ public class Manager : MonoBehaviour
         SetYourScoer("Your Score:" + nowScore, Color.HSVToRGB(0.1f, 1, 1));
         //パネルを表示する
         OpenPanel();
+        StartCoroutine("ClearNavi");
     }
     //ゲームオーバー処理
     public void GameOver()
@@ -198,6 +228,7 @@ public class Manager : MonoBehaviour
         SetYourScoer("Your Score:" + nowScore, Color.HSVToRGB(0.1f, 1, 1));
         //パネルを表示する
         OpenPanel();
+        StartCoroutine("GameOverTNavi");
     }
     //パネルタイトルの変更
     void SetTitle(string message, Color color)

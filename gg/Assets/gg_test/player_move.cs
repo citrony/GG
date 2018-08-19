@@ -18,6 +18,15 @@ public class player_move : MonoBehaviour
         gazeImgTime = 0;
     }
 
+    private IEnumerator ChangeNaviBGM1()
+    {
+        //ゲームスタート
+        FindObjectOfType<NaviController>().ChangeNavi2();
+        FindObjectOfType<TestSoundManager>().ChangeBgm1();
+        yield return new WaitForSeconds(10.0f);
+        FindObjectOfType<NaviController>().ChangeNavi3();
+    }
+
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
@@ -36,6 +45,7 @@ public class player_move : MonoBehaviour
                 {
                     start = true;
                     FindObjectOfType<Manager>().Dispatch(Manager.GameState.Playing);
+                    StartCoroutine("ChangeNaviBGM1");
                 }
             }
             else if (hit.transform.gameObject.tag == "Retry")
@@ -84,10 +94,15 @@ public class player_move : MonoBehaviour
                     transform.localPosition += velocity * Time.fixedDeltaTime;
 
                 }
+
                 if ((p.x < 500f) && (p.x >= -1060f))
                 {
                     velocity = new Vector3(-30, 0, 0);
                     transform.localPosition += velocity * Time.fixedDeltaTime;
+//                    if (p.x == -800f)
+//                    {
+//                        FindObjectOfType<NaviController>().ChangeNavi7();
+//                    }
                 }
 
                 if (p.x < -1060f)
@@ -98,4 +113,5 @@ public class player_move : MonoBehaviour
 
         }
     }
+
 }
