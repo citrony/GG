@@ -26,9 +26,13 @@ public class Manager : MonoBehaviour
     //パネルトータルスコアテキスト
     private TextMesh yourScoreText;
     //イグジットアイコン
-    private GameObject exitIcon;
+//    private GameObject exitIcon;
     //リトライアイコン
-    private GameObject retryIcon;
+//    private GameObject retryIcon;
+    //スタートアイコン
+    private GameObject startIcon;
+    //スタートアイコンの入れ物
+    private GameObject startIconbox;
     //倒した敵の数
     int countDestroyEnemy;
     //色相
@@ -38,6 +42,8 @@ public class Manager : MonoBehaviour
     int nowScore;
     //敵の存在の確認
     GameObject enemy;
+    //時間のUI
+    private GameObject TimeUi;
 
     // Use this for initialization
     void Start()
@@ -46,14 +52,18 @@ public class Manager : MonoBehaviour
         panel = GameObject.Find("Panel");
         title = GameObject.Find("Title");
         yourScore = GameObject.Find("YourScore");
-        exitIcon = GameObject.Find("ExitIcon");
-        retryIcon = GameObject.Find("RetryIcon");
+//        exitIcon = GameObject.Find("ExitIcon");
+//        retryIcon = GameObject.Find("RetryIcon");
+        startIconbox = GameObject.Find("start_iconbox");
+        startIcon = startIconbox.transform.Find("start_icon").gameObject;
+        TimeUi = GameObject.Find("TimeUi");
+
         //パネルを非表示
         panel.SetActive(false);
         title.SetActive(false);
         yourScore.SetActive(false);
-        exitIcon.SetActive(false);
-        retryIcon.SetActive(false);
+//        exitIcon.SetActive(false);
+//        retryIcon.SetActive(false);
         //タイトルのテキスト
         titleText = title.GetComponent<TextMesh>();
         //トータルスコアのテキスト
@@ -77,13 +87,17 @@ public class Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(5.0f);
         FindObjectOfType<NaviController>().ChangeNavi1();
+        yield return new WaitForSeconds(27.0f);
+        startIcon.SetActive(true);
     }
 
     //ゲームクリアNavi→アプリ終了
     private IEnumerator ClearNavi()
     {
+        TimeUi.SetActive(false);
         FindObjectOfType<NaviController>().ChangeNavi10();
         FindObjectOfType<TestSoundManager>().ChangeBgm7();
+        FindObjectOfType<LaserController>().LaserEnd();
         yield return new WaitForSeconds(5.0f);
         FindObjectOfType<TestSoundManager>().ChangeBgm8();
         yield return new WaitForSeconds(20.0f);
@@ -93,8 +107,10 @@ public class Manager : MonoBehaviour
     //ゲームオーバーTimeUp→アプリ終了
     private IEnumerator GameOverTNavi()
     {
+        TimeUi.SetActive(false);
         FindObjectOfType<NaviController>().ChangeNavi12();
         FindObjectOfType<TestSoundManager>().ChangeBgm9();
+        FindObjectOfType<LaserController>().LaserEnd();
         yield return new WaitForSeconds(15.0f);
         Application.Quit();
     }
@@ -117,8 +133,8 @@ public class Manager : MonoBehaviour
         panel.SetActive(true);
         title.SetActive(true);
         yourScore.SetActive(true);
-        exitIcon.SetActive(true);
-        retryIcon.SetActive(true);
+//        exitIcon.SetActive(true);
+//        retryIcon.SetActive(true);
     }
     //パネルUIの非活性化
     void ClosePanel()
@@ -126,8 +142,8 @@ public class Manager : MonoBehaviour
         panel.SetActive(false);
         title.SetActive(false);
         yourScore.SetActive(false);
-        exitIcon.SetActive(false);
-        retryIcon.SetActive(false);
+//        exitIcon.SetActive(false);
+//        retryIcon.SetActive(false);
     }
     //オブジェクトやスコアを初期位置に戻す
     void AllInit()
@@ -184,8 +200,8 @@ public class Manager : MonoBehaviour
         //ステート変更
         currentState = GameState.Opening;
         //ContinueとExit非表示
-        exitIcon.SetActive(false);
-        retryIcon.SetActive(false);
+//        exitIcon.SetActive(false);
+//        retryIcon.SetActive(false);
         //タイトルを表示する
         panel.SetActive(true);
         title.SetActive(true);
