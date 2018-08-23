@@ -6,6 +6,7 @@ public class EnemyRotate7 : MonoBehaviour
 {
     //public GameObject EnemyBullet;
     public GameObject Explosion;
+    public GameObject ScoreMotion70;
     //private AudioSource audioSource;
     //public GameObject target;
 
@@ -81,6 +82,7 @@ public class EnemyRotate7 : MonoBehaviour
     void EnemyBuster()
     {
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        Instantiate(ScoreMotion70, new Vector3(transform.position.x, transform.position.y+4, transform.position.z), Quaternion.identity);
         FindObjectOfType<SEController>().SeExplosion();
         Destroy(this.gameObject);
         FindObjectOfType<ScoreUi>().AddPoint(70);

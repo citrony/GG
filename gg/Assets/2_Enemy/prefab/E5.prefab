@@ -269,6 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 1996677058721964, guid: 7e4f40712646e4c7e8c8c1a1eeab4bc3, type: 2}
+  ScoreMotion60: {fileID: 1996830620041910, guid: 975c204d587407e4e90ccdf0d10e5a20,
+    type: 2}
   Enemylife: 1
 --- !u!114 &114961545070094926
 MonoBehaviour:

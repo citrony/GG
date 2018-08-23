@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 1996677058721964, guid: 7e4f40712646e4c7e8c8c1a1eeab4bc3, type: 2}
+  ScoreMotion40: {fileID: 1925635441376668, guid: 7fe465a1603594247a2c59da621f67d1,
+    type: 2}
   speed: 12.5
   Enemylife: 1
 --- !u!135 &135027506799291136
