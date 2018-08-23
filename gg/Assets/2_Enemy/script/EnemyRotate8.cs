@@ -13,7 +13,7 @@ public class EnemyRotate8 : MonoBehaviour
 
     //[SerializeField] private float speed = 8.7f;
     //float intervalTime;
-    [SerializeField] private int Enemylife = 3;
+    [SerializeField] private int Enemylife = 4;
 
 
     // Use this for initialization
@@ -49,6 +49,7 @@ public class EnemyRotate8 : MonoBehaviour
                     go.transform.parent = null;
                 }
         */
+        Destroy(this.gameObject.transform.root.gameObject, 20.0f);
     }
 
     void OnTriggerEnter(Collider coll)
@@ -67,7 +68,7 @@ public class EnemyRotate8 : MonoBehaviour
         //チャージショットと当たった時の処理
         if (coll.gameObject.tag == "PlayerCharge")
         {
-            Enemylife -= 3;
+            Enemylife -= 4;
             Destroy(coll.gameObject);
             //Debug.Log(Enemylife);
             if (Enemylife <= 0)
@@ -82,7 +83,7 @@ public class EnemyRotate8 : MonoBehaviour
     void EnemyBuster()
     {
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        Instantiate(ScoreMotion200, new Vector3(transform.position.x, transform.position.y+4, transform.position.z), Quaternion.identity);
+        Instantiate(ScoreMotion200, new Vector3(transform.position.x, transform.position.y + 4, transform.position.z), Quaternion.identity);
         FindObjectOfType<SEController>().SeExplosion();
         Destroy(this.gameObject);
         FindObjectOfType<ScoreUi>().AddPoint(200);

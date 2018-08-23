@@ -15,7 +15,7 @@ public class EventPlay : MonoBehaviour
     {
         for (int i = 0; i < 7; i++)
         {
-            enemyEventPos[i] = new Vector3(100 - Random.Range(85, 110), -23, 32 + Random.Range(-20, 20));
+            enemyEventPos[i] = new Vector3(100 - Random.Range(55, 60), Random.Range(-18, -16), 32 + Random.Range(-20, 20));
             //Debug.Log(enemyEventPos[0].x);
         }
     }
@@ -28,7 +28,7 @@ public class EventPlay : MonoBehaviour
             eventTime += Time.deltaTime;
             if (eventTime >= 15)
             {
-                Instantiate(enemyEventEnd, new Vector3(50, -22, 30), Quaternion.identity);
+                Instantiate(enemyEventEnd, new Vector3(30, -19, 30), Quaternion.identity);
                 eventStart = false;
             }
         }

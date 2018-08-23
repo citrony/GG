@@ -50,6 +50,7 @@ public class EnemyRotate4 : MonoBehaviour
                     go.transform.parent = null;
                 }
         */
+        Destroy(this.gameObject.transform.root.gameObject, 20.0f);
     }
 
     void OnTriggerEnter(Collider coll)
@@ -83,7 +84,7 @@ public class EnemyRotate4 : MonoBehaviour
     void EnemyBuster()
     {
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        Instantiate(ScoreMotion40, new Vector3(transform.position.x, transform.position.y +4, transform.position.z), Quaternion.identity);
+        Instantiate(ScoreMotion40, new Vector3(transform.position.x, transform.position.y + 4, transform.position.z), Quaternion.identity);
         FindObjectOfType<SEController>().SeExplosion();
         Destroy(this.gameObject);
         FindObjectOfType<ScoreUi>().AddPoint(40);

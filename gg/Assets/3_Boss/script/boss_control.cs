@@ -5,7 +5,7 @@ using UnityEngine;
 public class boss_control : MonoBehaviour {
 
     public GameObject Explosion;
-    [SerializeField] private int bosslife = 20; //ボスのライフ
+    [SerializeField] private int bosslife = 27; //ボスのライフ
 
     private Renderer cren;
     Color color1;

@@ -14,6 +14,8 @@ public class player_move : MonoBehaviour
     //RetryとExitのアイコンを見つめる時間
     private float gazeImgTime;
 
+    //スタートフラグ
+    private int startFlg = 0;
     //イベントフラグ
     private int eventFlg = 0;
     //ボス直前フラグ
@@ -52,52 +54,56 @@ public class player_move : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("GazeTarget"))
+            if (startFlg == 0)
             {
-                gazeButton = hit.transform.gameObject;
-                gazeButton.transform.localScale = new Vector3(1.3f, 1.3f, 1.10f);
-                gazeButton.GetComponent<SpriteRenderer>().color = Color.red;
-                var state = FoveInterface.CheckEyesClosed();
-                if (state == Fove.Managed.EFVR_Eye.Right || state == Fove.Managed.EFVR_Eye.Left)
+                if (hit.transform.gameObject.layer == LayerMask.NameToLayer("GazeTarget"))
                 {
-                    start = true;
-                    FindObjectOfType<Manager>().Dispatch(Manager.GameState.Playing);
-                    sunmove.enabled = true;
-                    StartCoroutine("ChangeNaviBGM1");
+                    gazeButton = hit.transform.gameObject;
+                    gazeButton.transform.localScale = new Vector3(1.3f, 1.3f, 1.10f);
+                    gazeButton.GetComponent<SpriteRenderer>().color = Color.red;
+                    var state = FoveInterface.CheckEyesClosed();
+                    if (state == Fove.Managed.EFVR_Eye.Right || state == Fove.Managed.EFVR_Eye.Left)
+                    {
+                        start = true;
+                        startFlg = 1;
+                        FindObjectOfType<Manager>().Dispatch(Manager.GameState.Playing);
+                        sunmove.enabled = true;
+                        StartCoroutine("ChangeNaviBGM1");
+                    }
                 }
-            }
- /*
-            else if (hit.transform.gameObject.tag == "Retry")
-            {
-                gazeImgTime += Time.deltaTime;
-                if(gazeImgTime <= 2)
+                /*
+                           else if (hit.transform.gameObject.tag == "Retry")
+                           {
+                               gazeImgTime += Time.deltaTime;
+                               if(gazeImgTime <= 2)
+                               {
+                                   imgRetry.fillAmount += 1.0f / 2 * gazeImgTime;
+                               }else if(gazeImgTime > 2)
+                               {
+                                   FindObjectOfType<Manager>().Dispatch(Manager.GameState.Opening);
+                               }
+                           }
+                           else if (hit.transform.gameObject.tag == "Exit")
+                           {
+                               gazeImgTime += Time.deltaTime;
+                               if (gazeImgTime <= 2)
+                               {
+                                   imgExit.fillAmount += 1.0f / 2 * gazeImgTime;
+                               }
+                               else if (gazeImgTime > 2)
+                               {
+                                   FindObjectOfType<Manager>().Dispatch(Manager.GameState.Opening);
+                               }
+                           }
+                */
+                else
                 {
-                    imgRetry.fillAmount += 1.0f / 2 * gazeImgTime;
-                }else if(gazeImgTime > 2)
-                {
-                    FindObjectOfType<Manager>().Dispatch(Manager.GameState.Opening);
-                }
-            }
-            else if (hit.transform.gameObject.tag == "Exit")
-            {
-                gazeImgTime += Time.deltaTime;
-                if (gazeImgTime <= 2)
-                {
-                    imgExit.fillAmount += 1.0f / 2 * gazeImgTime;
-                }
-                else if (gazeImgTime > 2)
-                {
-                    FindObjectOfType<Manager>().Dispatch(Manager.GameState.Opening);
-                }
-            }
- */
-            else
-            {
-                gazeImgTime = 0;
-                if (gazeButton != null)
-                {
-                    gazeButton.GetComponent<SpriteRenderer>().color = Color.white;
-                    gazeButton.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                    gazeImgTime = 0;
+                    if (gazeButton != null)
+                    {
+                        gazeButton.GetComponent<SpriteRenderer>().color = Color.white;
+                        gazeButton.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                    }
                 }
             }
         }
@@ -110,14 +116,14 @@ public class player_move : MonoBehaviour
                 Vector3 p = transform.localPosition;
             if (eventFlg == 0)
             {
-                if (p.x > 30f)
+                if (p.x > 50f)
                 {
                     velocity = new Vector3(-17, 0, 0);
                     transform.localPosition += velocity * Time.fixedDeltaTime;
 
                 }
 
-                if ((p.x < 30f) && (p.x >= -1080f))
+                if ((p.x < 50f) && (p.x >= -1080f))
                 {
                     velocity = new Vector3(-23, 0, 0);
                     transform.localPosition += velocity * Time.fixedDeltaTime;
@@ -155,6 +161,7 @@ public class player_move : MonoBehaviour
     {
         eventFlg = 1;
         Debug.Log("eventFlg = 1");
+        FindObjectOfType<SEController>().SeEventStart();
         FindObjectOfType<NaviController>().ChangeNavi4();
         FindObjectOfType<TestSoundManager>().ChangeBgm2();
     }

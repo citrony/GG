@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SEController : MonoBehaviour {
+public class SEController : MonoBehaviour
+{
 
     //AudioSourceコンポーネント
     private AudioSource audioSource;
@@ -12,6 +13,10 @@ public class SEController : MonoBehaviour {
     public AudioClip soundChargeShot;
     //敵爆発音
     public AudioClip soundExplosion;
+    //中ボス衝突音
+    public AudioClip soundEventStart;
+    //中ボス爆発音
+    public AudioClip soundEventEnd;
     //バリア反射音
     public AudioClip soundBarrierReflec;
     //バリアダメージ
@@ -26,7 +31,8 @@ public class SEController : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         //AudioSourceコンポーネント
         audioSource = gameObject.GetComponent<AudioSource>();
         //audioSource.clip = soundShooting;
@@ -36,9 +42,10 @@ public class SEController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update()
+    {
+
+    }
 
     //レーザー発射音がなる
     public void SeLaser()
@@ -49,7 +56,7 @@ public class SEController : MonoBehaviour {
 
     //チャージショット発射音がなる
     public void SeChargeShot()
-    { 
+    {
         audioSource.clip = soundChargeShot;
         audioSource.PlayOneShot(soundChargeShot, 0.5f);
     }
@@ -62,6 +69,20 @@ public class SEController : MonoBehaviour {
 
         // Debug.Log("ExplosionSoundPlay");
         //audioSource.clip = soundShooting;
+    }
+
+    //中ボス衝突音がなる
+    public void SeEventStart()
+    {
+        audioSource.clip = soundEventStart;
+        audioSource.PlayOneShot(soundEventStart, 0.5f);
+    }
+
+    //中ボス爆発音がなる
+    public void SeEventEnd()
+    {
+        audioSource.clip = soundEventEnd;
+        audioSource.PlayOneShot(soundEventEnd, 0.5f);
     }
 
     //バリア反射音がなる

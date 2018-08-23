@@ -49,6 +49,7 @@ public class EnemyRotate5 : MonoBehaviour
                     go.transform.parent = null;
                 }
         */
+        Destroy(this.gameObject.transform.root.gameObject, 20.0f);
     }
 
     void OnTriggerEnter(Collider coll)
