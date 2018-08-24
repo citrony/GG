@@ -209,6 +209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 1996677058721964, guid: 7e4f40712646e4c7e8c8c1a1eeab4bc3, type: 2}
+  ScoreMotion150: {fileID: 1207379825643846, guid: 65558246decf8b4488f96208b40b9842,
+    type: 2}
   tyubosslife: 3
 --- !u!122 &122520988231462780
 Halo:

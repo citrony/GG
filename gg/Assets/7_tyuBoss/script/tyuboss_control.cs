@@ -5,6 +5,7 @@ using UnityEngine;
 public class tyuboss_control : MonoBehaviour {
 
     public GameObject Explosion;
+    public GameObject ScoreMotion150;
     [SerializeField] private int tyubosslife = 3; //中ボスのライフ
 
     private Renderer cren;
@@ -64,6 +65,7 @@ public class tyuboss_control : MonoBehaviour {
     void TyuBossBuster()
     {
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        Instantiate(ScoreMotion150, new Vector3(transform.position.x, transform.position.y+4, transform.position.z), Quaternion.identity);
         FindObjectOfType<SEController>().SeExplosion();
         Destroy(this.gameObject);
         FindObjectOfType<ScoreUi>().AddPoint(150);

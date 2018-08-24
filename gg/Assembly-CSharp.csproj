@@ -86,6 +86,9 @@
     <Compile Include="Assets\5_Laser\script\Laser4_0.cs" />
     <Compile Include="Assets\5_Laser\script\LaserController.cs" />
     <Compile Include="Assets\7_tyuBoss\script\tyuboss_control.cs" />
+    <Compile Include="Assets\7_tyuBoss\script\tyuboss_controlEnd.cs" />
+    <Compile Include="Assets\7_tyuBoss\script\tyuboss_controlPlay.cs" />
+    <Compile Include="Assets\7_tyuBoss\script\tyuboss_controlStart.cs" />
     <Compile Include="Assets\Beamj.cs" />
     <Compile Include="Assets\EnemyTest\Effects\True Explosions\System\Scripts\effects\exploderComponents\ExploderComponent.cs" />
     <Compile Include="Assets\EnemyTest\Effects\True Explosions\System\Scripts\effects\exploderComponents\LightComponent.cs" />
@@ -387,10 +390,10 @@
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_SmoothingPreview.shader" />
     <None Include="Assets\FoveUnityPlugin\Resources\EyeShader.shader" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>F:/yuzu_folder2/gg8/gg/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/yuzu/GG/gg/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>F:/yuzu_folder2/gg8/gg/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/yuzu/GG/gg/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.1.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -588,28 +591,28 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.1.6f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="FoveClient_CSharp">
-      <HintPath>F:/yuzu_folder2/gg8/gg/Assets/FoveUnityPlugin/FoveClient_CSharp.dll</HintPath>
+      <HintPath>C:/Users/yuzu/GG/gg/Assets/FoveUnityPlugin/FoveClient_CSharp.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderCore-Unity5">
-      <HintPath>F:/yuzu_folder2/gg8/gg/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
+      <HintPath>C:/Users/yuzu/GG/gg/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderMeshOps-Unity5">
-      <HintPath>F:/yuzu_folder2/gg8/gg/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
+      <HintPath>C:/Users/yuzu/GG/gg/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
     </Reference>
     <Reference Include="KdTreeLib">
-      <HintPath>F:/yuzu_folder2/gg8/gg/Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
+      <HintPath>C:/Users/yuzu/GG/gg/Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
     </Reference>
     <Reference Include="pb_Stl">
-      <HintPath>F:/yuzu_folder2/gg8/gg/Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
+      <HintPath>C:/Users/yuzu/GG/gg/Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
     </Reference>
     <Reference Include="Poly2Tri">
-      <HintPath>F:/yuzu_folder2/gg8/gg/Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
+      <HintPath>C:/Users/yuzu/GG/gg/Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-2017.3-Editor">
-      <HintPath>F:/yuzu_folder2/gg8/gg/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
+      <HintPath>C:/Users/yuzu/GG/gg/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-2017.3-Runtime">
-      <HintPath>F:/yuzu_folder2/gg8/gg/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
+      <HintPath>C:/Users/yuzu/GG/gg/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/yuzu/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
