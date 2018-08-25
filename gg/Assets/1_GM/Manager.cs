@@ -100,7 +100,7 @@ public class Manager : MonoBehaviour
         FindObjectOfType<LaserController>().LaserEnd();
         yield return new WaitForSeconds(5.0f);
         FindObjectOfType<TestSoundManager>().ChangeBgm8();
-        yield return new WaitForSeconds(20.0f);
+        yield return new WaitForSeconds(19.0f);
         Application.Quit();
     }
 
@@ -111,7 +111,7 @@ public class Manager : MonoBehaviour
         FindObjectOfType<NaviController>().ChangeNavi12();
         FindObjectOfType<TestSoundManager>().ChangeBgm9();
         FindObjectOfType<LaserController>().LaserEnd();
-        yield return new WaitForSeconds(15.0f);
+        yield return new WaitForSeconds(19.0f);
         Application.Quit();
     }
 

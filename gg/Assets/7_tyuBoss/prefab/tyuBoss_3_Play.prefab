@@ -38,9 +38,7 @@ GameObject:
   - component: {fileID: 4598629043879132}
   - component: {fileID: 54656501867100988}
   - component: {fileID: 135051344713832636}
-  - component: {fileID: 114785491510512834}
   - component: {fileID: 114188814535384464}
-  - component: {fileID: 122435683643546996}
   m_Layer: 0
   m_Name: tyuBoss_3_Play
   m_TagString: Untagged
@@ -148,30 +146,6 @@ MonoBehaviour:
     type: 2}
   speed: 1.7
   tyubosslife: 5
---- !u!114 &114785491510512834
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1990889898790150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ce97a3eb23cc94397c3804b1ee55fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Explosion: {fileID: 1996677058721964, guid: 7e4f40712646e4c7e8c8c1a1eeab4bc3, type: 2}
-  tyubosslife: 3
---- !u!122 &122435683643546996
-Halo:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1990889898790150}
-  m_Enabled: 1
-  m_Color:
-    serializedVersion: 2
-    rgba: 4286611584
-  m_Size: 6.6
 --- !u!135 &135051344713832636
 SphereCollider:
   m_ObjectHideFlags: 1

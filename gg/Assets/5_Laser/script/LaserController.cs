@@ -6,11 +6,13 @@ public class LaserController : MonoBehaviour {
 
     private Laser4_0 laser4_0;
     private Laser4 laser4;
+    private FadeController fade;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         laser4_0 = GetComponent<Laser4_0>();
         laser4 = GetComponent<Laser4>();
+        fade = GetComponent<FadeController>();
         StartCoroutine("LaserStart");
 	}
 	
@@ -37,7 +39,8 @@ public class LaserController : MonoBehaviour {
     public void LaserEnd()
     {
 //        laser4_0.enabled = false;
-       laser4.enabled = false;
+        laser4.enabled = false;
+        fade.enabled = true;
     }
 
 }
