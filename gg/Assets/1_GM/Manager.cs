@@ -48,6 +48,8 @@ public class Manager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //exeのスピード調整
+        Application.targetFrameRate = 60;
         //ステージ上のパネル上のUI系ゲームオブジェクトを取得(タグまとめとかもあり)
         panel = GameObject.Find("Panel");
         title = GameObject.Find("Title");

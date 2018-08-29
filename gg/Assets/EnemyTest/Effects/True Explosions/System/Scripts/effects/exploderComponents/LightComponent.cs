@@ -6,7 +6,7 @@ public class LightComponent : ExploderComponent {
 	public Light lightning; 
 	public float radius = 0;
 
-	IEnumerator lightUp(Exploder exploder) {
+	IEnumerator lightUp(ExploderT exploder) {
 		Light light = (Light) GameObject.Instantiate(lightning, transform.position, transform.rotation);
 		light.transform.parent = transform;
 		light.range = radius;
@@ -20,7 +20,7 @@ public class LightComponent : ExploderComponent {
 		yield return null;
 	}
 
-	public override void onExplosionStarted(Exploder exploder) {
+	public override void onExplosionStarted(ExploderT exploder) {
 		if (radius < 0.0001f) {
 			radius = exploder.radius;
 		}

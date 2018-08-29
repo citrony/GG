@@ -5,7 +5,7 @@ using UnityEngine;
 public class boss_control : MonoBehaviour {
 
     public GameObject Explosion;
-    [SerializeField] private int bosslife = 27; //ボスのライフ
+    [SerializeField] private int bosslife = 33; //ボスのライフ
 
     private Renderer cren;
     Color color1;
@@ -45,7 +45,7 @@ public class boss_control : MonoBehaviour {
         if (coll.gameObject.tag == "PlayerCharge")
         {
             FindObjectOfType<SEController>().SeBossDamage();
-            bosslife -= 3;
+            bosslife -= 10;
             Destroy(coll.gameObject);
             StartCoroutine("Tenmetsu");
 

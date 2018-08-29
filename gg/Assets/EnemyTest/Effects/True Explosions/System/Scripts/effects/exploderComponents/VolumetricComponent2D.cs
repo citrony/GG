@@ -15,7 +15,7 @@ public class VolumetricComponent2D : ExploderComponent{
 	public int teleportationIterations = 4;
 	public float teleportationThreshold = 1.5f;
 	
-	protected Exploder exploder;
+	protected ExploderT exploder;
 	
 	protected ParticleSystem.Particle[] particles;
 	protected Vector2[] directions;
@@ -23,7 +23,7 @@ public class VolumetricComponent2D : ExploderComponent{
 	protected float speed;
 	protected int curCount = 0;
 
-	public override void onExplosionStarted(Exploder exploder) {
+	public override void onExplosionStarted(ExploderT exploder) {
 		particles = new ParticleSystem.Particle[maxParticles];
 		directions = new Vector2[maxParticles];
 		hitCount = new int[maxParticles];

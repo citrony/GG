@@ -5,12 +5,14 @@ using UnityEngine;
 public class LaserController : MonoBehaviour {
 
     private Laser4_0 laser4_0;
+    private Laser4_1 laser4_1;
     private Laser4 laser4;
     private FadeController fade;
 
     // Use this for initialization
     void Start () {
         laser4_0 = GetComponent<Laser4_0>();
+        laser4_1 = GetComponent<Laser4_1>();
         laser4 = GetComponent<Laser4>();
         fade = GetComponent<FadeController>();
         StartCoroutine("LaserStart");
@@ -29,9 +31,16 @@ public class LaserController : MonoBehaviour {
     }
 
     //チャージショット許可
-    public void LaserChange()
+    public void LaserChange01()
     {
         laser4_0.enabled = false;
+        laser4_1.enabled = true;
+    }
+
+    //両方許可
+    public void LaserChange()
+    {
+        laser4_1.enabled = false;
         laser4.enabled = true;
     }
 

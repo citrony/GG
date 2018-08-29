@@ -148,7 +148,7 @@ public class player_move : MonoBehaviour
 
             }
 
-            if (eventFlg == 3)
+            if (eventFlg == 4)
             {
                 transform.Translate(new Vector3(0, 0.1f, 0));
             }
@@ -165,18 +165,24 @@ public class player_move : MonoBehaviour
         FindObjectOfType<NaviController>().ChangeNavi4();
         FindObjectOfType<TestSoundManager>().ChangeBgm2();
     }
-    public void EventPlay()
+    public void EventTutorial()
     {
         eventFlg = 2;
         Debug.Log("eventFlg = 2");
         FindObjectOfType<NaviController>().ChangeNavi5();
         FindObjectOfType<TestSoundManager>().ChangeBgm4();
-        FindObjectOfType<LaserController>().LaserChange();
+        FindObjectOfType<LaserController>().LaserChange01();
     }
-    public void EventClear()
+    public void EventPlay()
     {
         eventFlg = 3;
         Debug.Log("eventFlg = 3");
+        FindObjectOfType<LaserController>().LaserChange();
+    }
+        public void EventClear()
+    {
+        eventFlg = 4;
+        Debug.Log("eventFlg = 4");
         FindObjectOfType<NaviController>().ChangeNavi6();
         FindObjectOfType<TestSoundManager>().ChangeBgm5();
         //        eventEnd.SetActive(true);

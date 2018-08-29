@@ -8,8 +8,8 @@ public class tyuboss_controlEnd : MonoBehaviour
     public GameObject Explosion;
     GameObject target;
 
-    [SerializeField] private float speed = 1.7f;
-    [SerializeField] private int tyubosslife = 5; //中ボスのライフ
+    [SerializeField] private float speed = 0.7f;
+    [SerializeField] private int tyubosslife = 50; //中ボスのライフ
 
     private Renderer cren;
     Color color1;
@@ -58,7 +58,7 @@ public class tyuboss_controlEnd : MonoBehaviour
         if (coll.gameObject.tag == "PlayerCharge")
         {
             FindObjectOfType<SEController>().SeBossDamage();
-            tyubosslife -= 5;
+            tyubosslife -= 50;
             Destroy(coll.gameObject);
             StartCoroutine("Tenmetsu");
 
@@ -76,7 +76,7 @@ public class tyuboss_controlEnd : MonoBehaviour
     void TyuBossBuster()
     {
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        FindObjectOfType<SEController>().SeEventEnd();
+        FindObjectOfType<SEController>().SeEventTutorialAndEnd();
         Destroy(this.gameObject);
         FindObjectOfType<ScoreUi>().AddPoint(150);
         FindObjectOfType<player_move>().EventClear();

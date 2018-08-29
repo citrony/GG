@@ -33,6 +33,14 @@ public class Laser4 : MonoBehaviour
     //チャージカウント用変数
     private float c_count;
 
+    //チャージフラグ
+    private int cgFLG;
+
+    //チャージ画面
+    [SerializeField] private Renderer cgboard;
+    //フェードアウト時のalpha値
+    private float alpha = 0.0f;
+
     // LineRenderer rightRenderer;
     //private LineRenderer leftRenderer;
 
@@ -55,6 +63,7 @@ public class Laser4 : MonoBehaviour
         //AudioSource[] audioSources = GetComponents<AudioSource>();
         //audioSources[0].clip = soundLaser;
         //audioSources[1].clip = soundChargeShot;
+        cgFLG = 0;
     }
 
     // Update is called once per frame
@@ -71,7 +80,7 @@ public class Laser4 : MonoBehaviour
         {
             case Fove.Managed.EFVR_Eye.Left:
                 //左目閉じたらチャージカウントゼロ
-                c_count = 0.0f;
+                ChargeReset();
 
                 if (m_state != Fove.Managed.EFVR_Eye.Left)
                 {
@@ -102,7 +111,7 @@ public class Laser4 : MonoBehaviour
 
             case Fove.Managed.EFVR_Eye.Right:
                 //右目閉じたらチャージカウントゼロ
-                c_count = 0.0f;
+                ChargeReset();
 
                 if (m_state != Fove.Managed.EFVR_Eye.Right)
                 {
@@ -135,33 +144,45 @@ public class Laser4 : MonoBehaviour
                 //両目開いてたら開いてた秒数分チャージ
                 c_count += Time.deltaTime;
 
-
-
-                //もし前のステートが両目開いてて、かつ3秒以上開いてたらチャージビーム放出→チャージカウントゼロ
-                if (m_state == Fove.Managed.EFVR_Eye.Neither && c_count >= 2.0f)
+                if (cgFLG == 0 && c_count >= 1.0f)
                 {
-                    chargeLayser = GameObject.Instantiate(cPrefab);
-                    //chargeLayser.transform.parent = this.transform;
+                    FindObjectOfType<SEController>().SeCharge();
+                    cgFLG = 1;
+                }
 
-                    chargeLayser.transform.position = (rays.left.GetPoint(0.0f) + rays.right.GetPoint(0.0f)) / 2;
-                    //もしくは暫定的に 
-                    //chargeLayser.transform.localPosition = Vector3.zero;
+                if (cgFLG == 1)
+                {
+                    alpha += 0.5f;
+                    var color = cgboard.material.color;
+                    color.a = alpha / 255.0f;
+                    cgboard.material.color = color;
 
-                    chargeLayser.transform.localEulerAngles = new Vector3(this.transform.eulerAngles.x, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
-                    //chargeLayser.transform.localEulerAngles = Vector3.zero;
+                    //もし前のステートが両目開いてて、かつ3秒以上開いてたらチャージビーム放出→チャージカウントゼロ
+                    if (m_state == Fove.Managed.EFVR_Eye.Neither && c_count >= 2.5f)
+                    {
+                        chargeLayser = GameObject.Instantiate(cPrefab);
+                        //chargeLayser.transform.parent = this.transform;
 
-                    chargeLayser.transform.parent = GameObject.Find("Fove Rig").transform;
-                    //chargeLayser.transform.parent = this.transform;
+                        chargeLayser.transform.position = (rays.left.GetPoint(0.0f) + rays.right.GetPoint(0.0f)) / 2;
+                        //もしくは暫定的に 
+                        //chargeLayser.transform.localPosition = Vector3.zero;
 
-                    //発射音
-                    //                    audioSource.clip = soundChargeShot;
-                    //                    audioSource.PlayOneShot(soundChargeShot, 0.5f);
-                    FindObjectOfType<SEController>().SeChargeShot();
+                        chargeLayser.transform.localEulerAngles = new Vector3(this.transform.eulerAngles.x, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
+                        //chargeLayser.transform.localEulerAngles = Vector3.zero;
 
-                    //chargeLayser.transform.parent = null;
-                    Destroy(chargeLayser, 20.0f);
-                    c_count = 0.0f;
+                        chargeLayser.transform.parent = GameObject.Find("Fove Rig").transform;
+                        //chargeLayser.transform.parent = this.transform;
 
+                        //発射音
+                        //                    audioSource.clip = soundChargeShot;
+                        //                    audioSource.PlayOneShot(soundChargeShot, 0.5f);
+                        FindObjectOfType<SEController>().SeChargeShot();
+
+                        //chargeLayser.transform.parent = null;
+                        Destroy(chargeLayser, 20.0f);
+                        ChargeReset();
+
+                    }
                 }
                 
 
@@ -186,7 +207,7 @@ public class Laser4 : MonoBehaviour
                 
             case Fove.Managed.EFVR_Eye.Both:
                 //両目閉じたらチャージカウントゼロ
-                c_count = 0.0f;
+                ChargeReset();
                 //両目閉じたら閉じてた秒数分チャージ
                 //c_count += Time.deltaTime;
 
@@ -224,5 +245,14 @@ public class Laser4 : MonoBehaviour
         audioSource.PlayOneShot(soundExplosion1000, 0.5f);
     }
     */
+    void ChargeReset()
+    {
+        c_count = 0.0f;
+        cgFLG = 0;
+        alpha = 0.0f;
+        var color = cgboard.material.color;
+        color.a = 0.0f;
+        cgboard.material.color = color;
+    }
 
 }

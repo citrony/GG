@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class SphereExploder : Exploder {
+public class SphereExploder : ExploderT {
 	public override IEnumerator explode() 
 	{
 		exploded = true;

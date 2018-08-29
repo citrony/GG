@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EventPlay : MonoBehaviour
 {
-
+    [SerializeField] GameObject enemyEventTutorial;
     [SerializeField] GameObject enemyEventPlay;
     [SerializeField] GameObject enemyEventEnd;
     private Vector3[] enemyEventPos = new Vector3[8];
@@ -26,7 +26,7 @@ public class EventPlay : MonoBehaviour
         if (eventStart == true)
         {
             eventTime += Time.deltaTime;
-            if (eventTime >= 15)
+            if (eventTime >= 12)
             {
                 Instantiate(enemyEventEnd, new Vector3(30, -19, 30), Quaternion.identity);
                 eventStart = false;
@@ -37,13 +37,20 @@ public class EventPlay : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
         {
-            FindObjectOfType<player_move>().EventPlay();
-            eventStart = true;
-            Debug.Log("EventPlay!");
-            for (int i = 0; i < 7; i++)
-            {
-                Instantiate(enemyEventPlay, enemyEventPos[i], Quaternion.identity);
-            }
+            FindObjectOfType<player_move>().EventTutorial();
+            Instantiate(enemyEventTutorial, new Vector3(30, -19, 30), Quaternion.identity);
         }
     }
+
+    public void Tyubosswarawara()
+    {
+        FindObjectOfType<player_move>().EventPlay();
+        eventStart = true;
+        Debug.Log("EventPlay!");
+        for (int i = 0; i < 7; i++)
+        {
+            Instantiate(enemyEventPlay, enemyEventPos[i], Quaternion.identity);
+        }
+    }
+
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class barrier_control : MonoBehaviour {
 
-    [SerializeField] private int barrierlife = 9;　//バリアのライフ
+    [SerializeField] private int barrierlife = 30;　//バリアのライフ
     [SerializeField] private GameObject Erosion;
 
     private Renderer bren;
@@ -36,7 +36,7 @@ public class barrier_control : MonoBehaviour {
         if (coll.gameObject.tag == "PlayerCharge")
         {
 
-            barrierlife -= 3;
+            barrierlife -= 10;
             StartCoroutine("Tenmetsu2");
             Debug.Log(barrierlife);
             Destroy(coll.gameObject);

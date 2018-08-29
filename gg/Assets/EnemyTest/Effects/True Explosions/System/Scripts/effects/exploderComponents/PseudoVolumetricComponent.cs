@@ -8,7 +8,7 @@ public class PseudoVolumetricComponent : ExploderComponent {
 	public float randomness = 1;
 	public float duration = 1;
  
-	public IEnumerator generateExplosion(Exploder exploder) {
+	public IEnumerator generateExplosion(ExploderT exploder) {
 		for (int i = 0; i < count; i++) {
 			GameObject explosion = (GameObject) GameObject.Instantiate(volumetricExplosion, Random.insideUnitSphere * scale * randomness + transform.position, Random.rotation);
 			explosion.transform.localScale *= scale * (Random.Range(0.5f, 1) * randomness + 1);
@@ -17,7 +17,7 @@ public class PseudoVolumetricComponent : ExploderComponent {
 		}
 	}
 
-	public override void onExplosionStarted (Exploder exploder) {
+	public override void onExplosionStarted (ExploderT exploder) {
 		StartCoroutine("generateExplosion", exploder);
 	}
 }

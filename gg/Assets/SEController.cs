@@ -9,6 +9,8 @@ public class SEController : MonoBehaviour
     private AudioSource audioSource;
     //レーザー発射音
     public AudioClip soundLaser;
+    //チャージ音
+    public AudioClip soundCharge;
     //チャージショット発射音
     public AudioClip soundChargeShot;
     //敵爆発音
@@ -16,7 +18,7 @@ public class SEController : MonoBehaviour
     //中ボス衝突音
     public AudioClip soundEventStart;
     //中ボス爆発音
-    public AudioClip soundEventEnd;
+    public AudioClip soundEventTutorialAndEnd;
     //バリア反射音
     public AudioClip soundBarrierReflec;
     //バリアダメージ
@@ -54,6 +56,13 @@ public class SEController : MonoBehaviour
         audioSource.PlayOneShot(soundLaser, 0.5f);
     }
 
+    //チャージ音がなる
+    public void SeCharge()
+    {
+        audioSource.clip = soundCharge;
+        audioSource.Play();
+    }
+
     //チャージショット発射音がなる
     public void SeChargeShot()
     {
@@ -79,10 +88,10 @@ public class SEController : MonoBehaviour
     }
 
     //中ボス爆発音がなる
-    public void SeEventEnd()
+    public void SeEventTutorialAndEnd()
     {
-        audioSource.clip = soundEventEnd;
-        audioSource.PlayOneShot(soundEventEnd, 0.5f);
+        audioSource.clip = soundEventTutorialAndEnd;
+        audioSource.PlayOneShot(soundEventTutorialAndEnd, 0.5f);
     }
 
     //バリア反射音がなる

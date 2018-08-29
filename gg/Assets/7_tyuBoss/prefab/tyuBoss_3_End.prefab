@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 2}
-  speed: 1.7
-  tyubosslife: 5
+  speed: 0.7
+  tyubosslife: 50
 --- !u!122 &122377600574996272
 Halo:
   m_ObjectHideFlags: 1

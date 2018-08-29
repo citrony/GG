@@ -6,7 +6,7 @@ public class ParticleComponent : ExploderComponent {
 	public GameObject explosionEffectsContainer;
 	public float scale = 1;
 	public float playbackSpeed = 1;
-	public override void onExplosionStarted(Exploder exploder)
+	public override void onExplosionStarted(ExploderT exploder)
 	{
 		GameObject container = (GameObject)GameObject.Instantiate(explosionEffectsContainer, transform.position, Quaternion.identity);
 		ParticleSystem[] systems = container.GetComponentsInChildren<ParticleSystem>();

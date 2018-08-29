@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260d31ea849b8a744b5090466a1a0cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barrierlife: 9
+  barrierlife: 30
   Erosion: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 2}
 --- !u!114 &114349474515765206
 MonoBehaviour:
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 2}
-  bosslife: 20
+  bosslife: 33
 --- !u!122 &122636167971460164
 Halo:
   m_ObjectHideFlags: 1

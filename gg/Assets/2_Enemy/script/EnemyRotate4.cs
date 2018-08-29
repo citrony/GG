@@ -69,7 +69,7 @@ public class EnemyRotate4 : MonoBehaviour
         //チャージショットと当たった時の処理
         if (coll.gameObject.tag == "PlayerCharge")
         {
-            Enemylife -= 3;
+            Enemylife -= 5;
             Destroy(coll.gameObject);
             //Debug.Log(Enemylife);
             if (Enemylife <= 0)
