@@ -144,7 +144,7 @@ public class Laser4 : MonoBehaviour
                 //両目開いてたら開いてた秒数分チャージ
                 c_count += Time.deltaTime;
 
-                if (cgFLG == 0 && c_count >= 1.0f)
+                if (cgFLG == 0 && c_count >= 0.8f)
                 {
                     FindObjectOfType<SEController>().SeCharge();
                     cgFLG = 1;
@@ -158,7 +158,7 @@ public class Laser4 : MonoBehaviour
                     cgboard.material.color = color;
 
                     //もし前のステートが両目開いてて、かつ3秒以上開いてたらチャージビーム放出→チャージカウントゼロ
-                    if (m_state == Fove.Managed.EFVR_Eye.Neither && c_count >= 2.5f)
+                    if (m_state == Fove.Managed.EFVR_Eye.Neither && c_count >= 2.0f)
                     {
                         chargeLayser = GameObject.Instantiate(cPrefab);
                         //chargeLayser.transform.parent = this.transform;

@@ -283,7 +283,7 @@ MonoBehaviour:
   Explosion: {fileID: 1996677058721964, guid: 7e4f40712646e4c7e8c8c1a1eeab4bc3, type: 2}
   ScoreMotion200: {fileID: 1657398463591614, guid: 8bcc4b42a26954144baccfc22abeb58a,
     type: 2}
-  Enemylife: 4
+  Enemylife: 1
 --- !u!136 &136481363393184178
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -294,6 +294,6 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 2
-  m_Height: 5
+  m_Height: 5.5
   m_Direction: 1
   m_Center: {x: 2, y: 0, z: 0}

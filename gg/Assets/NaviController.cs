@@ -18,6 +18,8 @@ public class NaviController : MonoBehaviour {
     [SerializeField] private AudioClip navi10;
     [SerializeField] private AudioClip navi11;
     [SerializeField] private AudioClip navi12;
+    [SerializeField] private AudioClip naviskip;
+
 
     private AudioSource nowNavi;
     private float testTime;
@@ -133,6 +135,12 @@ public class NaviController : MonoBehaviour {
     public void ChangeNavi12()
     {
         nowNavi.clip = navi12;
+        nowNavi.Play();
+    }
+
+    public void ChangeNaviskip()
+    {
+        nowNavi.clip = naviskip;
         nowNavi.Play();
     }
 }

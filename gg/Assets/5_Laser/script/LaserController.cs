@@ -26,7 +26,8 @@ public class LaserController : MonoBehaviour {
     //オープニングでレーザー撃てるようにする
     private IEnumerator LaserStart()
     {
-        yield return new WaitForSeconds(32.0f);
+        yield return new WaitForSeconds(5.0f);
+        //        yield return new WaitForSeconds(32.0f);
         laser4_0.enabled = true;
     }
 

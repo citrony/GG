@@ -8,7 +8,7 @@ public class tyuboss_controlTutorial : MonoBehaviour {
     GameObject target;
 
     [SerializeField] private float speed = 0.0f;
-    [SerializeField] private int tyubosslife = 50; //中ボスのライフ
+    [SerializeField] private int tyubosslife = 28; //中ボスのライフ
 
     private Renderer cren;
     Color color1;

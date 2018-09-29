@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class player_move : MonoBehaviour
 {
@@ -9,8 +10,8 @@ public class player_move : MonoBehaviour
     private GameObject gazeButton;
     bool start = false;
     //RetryとExitのアイコンのイメージコンポーネント(インスペクタで設定)
-//    public Image imgRetry;
-//    public Image imgExit;
+    public Image imgRetry;
+    public Image imgExit;
     //RetryとExitのアイコンを見つめる時間
     private float gazeImgTime;
 
@@ -71,31 +72,21 @@ public class player_move : MonoBehaviour
                         StartCoroutine("ChangeNaviBGM1");
                     }
                 }
-                /*
-                           else if (hit.transform.gameObject.tag == "Retry")
-                           {
-                               gazeImgTime += Time.deltaTime;
-                               if(gazeImgTime <= 2)
-                               {
-                                   imgRetry.fillAmount += 1.0f / 2 * gazeImgTime;
-                               }else if(gazeImgTime > 2)
-                               {
-                                   FindObjectOfType<Manager>().Dispatch(Manager.GameState.Opening);
-                               }
-                           }
-                           else if (hit.transform.gameObject.tag == "Exit")
-                           {
-                               gazeImgTime += Time.deltaTime;
-                               if (gazeImgTime <= 2)
-                               {
-                                   imgExit.fillAmount += 1.0f / 2 * gazeImgTime;
-                               }
-                               else if (gazeImgTime > 2)
-                               {
-                                   FindObjectOfType<Manager>().Dispatch(Manager.GameState.Opening);
-                               }
-                           }
-                */
+
+                else if (hit.transform.gameObject.tag == "NaviSkip")
+                {
+                    gazeButton = hit.transform.gameObject;
+                    gazeButton.transform.localScale = new Vector3(1.3f, 1.3f, 1.10f);
+//                    gazeButton.GetComponent<SpriteRenderer>().color = Color.red;
+                    var state = FoveInterface.CheckEyesClosed();
+                    if (state == Fove.Managed.EFVR_Eye.Right || state == Fove.Managed.EFVR_Eye.Left)
+                    {                        
+                        FindObjectOfType<Manager>().Prepstart();
+                        FindObjectOfType<NaviController>().ChangeNaviskip();
+                    }
+                }
+
+
                 else
                 {
                     gazeImgTime = 0;
@@ -106,10 +97,66 @@ public class player_move : MonoBehaviour
                     }
                 }
             }
+
+            else
+            {
+                if (hit.transform.gameObject.tag == "Retry")
+                {
+                    gazeButton = hit.transform.gameObject;
+                    gazeButton.transform.localScale = new Vector3(1.3f, 1.3f, 1.10f);
+                    var state = FoveInterface.CheckEyesClosed();
+                    if (state == Fove.Managed.EFVR_Eye.Right || state == Fove.Managed.EFVR_Eye.Left)
+                    {
+//                        string sceneName = SceneManager.GetActiveScene().name;
+                        SceneManager.LoadScene("gg_v1.0");
+                    }
+
+
+                }
+                else if (hit.transform.gameObject.tag == "Exit")
+                {
+                    gazeButton = hit.transform.gameObject;
+                    gazeButton.transform.localScale = new Vector3(1.3f, 1.3f, 1.10f);
+                    var state = FoveInterface.CheckEyesClosed();
+                    if (state == Fove.Managed.EFVR_Eye.Right || state == Fove.Managed.EFVR_Eye.Left)
+                    {
+
+                        UnityEditor.EditorApplication.isPlaying = false;
+
+                        //Application.Quit();
+                    }
+
+                }
+
+                /*
+                                {
+                                   gazeImgTime += Time.deltaTime;
+                                   if (gazeImgTime <= 2)
+                                   {
+                                       imgExit.fillAmount += 1.0f / 2 * gazeImgTime;
+                                   }
+                                   else if (gazeImgTime > 2)
+                                   {
+                                       FindObjectOfType<Manager>().Dispatch(Manager.GameState.Opening);
+                                   }
+                               }
+                */
+
+
+                else
+                {
+                    gazeImgTime = 0;
+                    if (gazeButton != null)
+                    {
+                        gazeButton.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                    }
+                }
+
+            }
         }
 
-        if (start == true)
-        {
+            if (start == true)
+            {
             //            velocity = new Vector3(-20, 0, 0);
             //            transform.localPosition += velocity * Time.fixedDeltaTime;
 
@@ -118,14 +165,14 @@ public class player_move : MonoBehaviour
             {
                 if (p.x > 50f)
                 {
-                    velocity = new Vector3(-17, 0, 0);
+                    velocity = new Vector3(-14.5f, 0, 0);
                     transform.localPosition += velocity * Time.fixedDeltaTime;
 
                 }
 
                 if ((p.x < 50f) && (p.x >= -1080f))
                 {
-                    velocity = new Vector3(-23, 0, 0);
+                    velocity = new Vector3(-20.5f, 0, 0);
                     transform.localPosition += velocity * Time.fixedDeltaTime;
                     if ((p.x < -700f) && (bossnearFlg == 0))
                     {
@@ -172,12 +219,21 @@ public class player_move : MonoBehaviour
         FindObjectOfType<NaviController>().ChangeNavi5();
         FindObjectOfType<TestSoundManager>().ChangeBgm4();
         FindObjectOfType<LaserController>().LaserChange01();
+        StartCoroutine("WinkApply");
     }
+
+    //スタートNavi
+    private IEnumerator WinkApply()
+    {
+        yield return new WaitForSeconds(15.0f);
+        FindObjectOfType<LaserController>().LaserChange();
+    }
+
     public void EventPlay()
     {
         eventFlg = 3;
         Debug.Log("eventFlg = 3");
-        FindObjectOfType<LaserController>().LaserChange();
+        
     }
         public void EventClear()
     {

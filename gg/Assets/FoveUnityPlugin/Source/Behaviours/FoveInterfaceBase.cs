@@ -247,9 +247,16 @@ namespace UnityEngine
 		private void Start()
 		{
 			StartHelper();
-		}
+            StartCoroutine(ConnectCompositor2()); //追加 
+        }
 
-		protected virtual void StartHelper()
+        private IEnumerator ConnectCompositor2()
+        {
+            yield return null;
+            ConnectCompositor();
+        } 
+
+        protected virtual void StartHelper()
 		{
 			ReloadFoveClient();
 			EnsureLocalDataConcurrency();

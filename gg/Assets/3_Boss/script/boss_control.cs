@@ -69,6 +69,8 @@ public class boss_control : MonoBehaviour {
         FindObjectOfType<Manager>().Dispatch(Manager.GameState.Clear);
     }
 
+
+
     //点滅コルーチン
        private IEnumerator Tenmetsu()
        {

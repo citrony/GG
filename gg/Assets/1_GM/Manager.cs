@@ -26,9 +26,9 @@ public class Manager : MonoBehaviour
     //パネルトータルスコアテキスト
     private TextMesh yourScoreText;
     //イグジットアイコン
-//    private GameObject exitIcon;
+    private GameObject exitIcon;
     //リトライアイコン
-//    private GameObject retryIcon;
+    private GameObject retryIcon;
     //スタートアイコン
     private GameObject startIcon;
     //スタートアイコンの入れ物
@@ -43,7 +43,12 @@ public class Manager : MonoBehaviour
     //敵の存在の確認
     GameObject enemy;
     //時間のUI
-    private GameObject TimeUi;
+    private GameObject timeUi;
+    //スコアのUI
+    private GameObject scoreUi;
+    //スキップ用アイコン
+    private GameObject naviSkip;
+
 
     // Use this for initialization
     void Start()
@@ -54,18 +59,23 @@ public class Manager : MonoBehaviour
         panel = GameObject.Find("Panel");
         title = GameObject.Find("Title");
         yourScore = GameObject.Find("YourScore");
-//        exitIcon = GameObject.Find("ExitIcon");
-//        retryIcon = GameObject.Find("RetryIcon");
+        exitIcon = GameObject.Find("ExitIcon");
+        retryIcon = GameObject.Find("RetryIcon");
         startIconbox = GameObject.Find("start_iconbox");
         startIcon = startIconbox.transform.Find("start_icon").gameObject;
-        TimeUi = GameObject.Find("TimeUi");
+        timeUi = GameObject.Find("TimeUi");
+        scoreUi = GameObject.Find("ScoreUi");
+        naviSkip = GameObject.Find("Naviskip");
+
 
         //パネルを非表示
         panel.SetActive(false);
         title.SetActive(false);
         yourScore.SetActive(false);
-//        exitIcon.SetActive(false);
-//        retryIcon.SetActive(false);
+        exitIcon.SetActive(false);
+        retryIcon.SetActive(false);
+        naviSkip.SetActive(false);
+
         //タイトルのテキスト
         titleText = title.GetComponent<TextMesh>();
         //トータルスコアのテキスト
@@ -89,32 +99,49 @@ public class Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(5.0f);
         FindObjectOfType<NaviController>().ChangeNavi1();
+        naviSkip.SetActive(true);
         yield return new WaitForSeconds(27.0f);
+ //       if(!startIcon.SetActive())
+ //       {
+            Prepstart();
+ //       }
+      }
+
+    public void Prepstart()
+    {
         startIcon.SetActive(true);
+        naviSkip.SetActive(false);
     }
 
-    //ゲームクリアNavi→アプリ終了
+    //ゲームクリアNavi//→アプリ終了
     private IEnumerator ClearNavi()
     {
-        TimeUi.SetActive(false);
+        scoreUi.SetActive(false);
+        timeUi.SetActive(false);
         FindObjectOfType<NaviController>().ChangeNavi10();
         FindObjectOfType<TestSoundManager>().ChangeBgm7();
-        FindObjectOfType<LaserController>().LaserEnd();
+//        FindObjectOfType<LaserController>().LaserEnd();
         yield return new WaitForSeconds(5.0f);
+        exitIcon.SetActive(true);
+        retryIcon.SetActive(true);
         FindObjectOfType<TestSoundManager>().ChangeBgm8();
-        yield return new WaitForSeconds(19.0f);
-        Application.Quit();
+//        yield return new WaitForSeconds(19.0f);
+//        Application.Quit();
     }
 
-    //ゲームオーバーTimeUp→アプリ終了
+    //ゲームオーバーTimeUp//→アプリ終了
     private IEnumerator GameOverTNavi()
     {
-        TimeUi.SetActive(false);
+        timeUi.SetActive(false);
+        scoreUi.SetActive(false);
         FindObjectOfType<NaviController>().ChangeNavi12();
         FindObjectOfType<TestSoundManager>().ChangeBgm9();
-        FindObjectOfType<LaserController>().LaserEnd();
-        yield return new WaitForSeconds(19.0f);
-        Application.Quit();
+        //        FindObjectOfType<LaserController>().LaserEnd();
+        yield return new WaitForSeconds(5.0f);
+        exitIcon.SetActive(true);
+        retryIcon.SetActive(true);
+        //        yield return new WaitForSeconds(19.0f);
+        //        Application.Quit();
     }
 
 
@@ -144,8 +171,8 @@ public class Manager : MonoBehaviour
         panel.SetActive(false);
         title.SetActive(false);
         yourScore.SetActive(false);
-//        exitIcon.SetActive(false);
-//        retryIcon.SetActive(false);
+        exitIcon.SetActive(false);
+        retryIcon.SetActive(false);
     }
     //オブジェクトやスコアを初期位置に戻す
     void AllInit()
@@ -202,8 +229,8 @@ public class Manager : MonoBehaviour
         //ステート変更
         currentState = GameState.Opening;
         //ContinueとExit非表示
-//        exitIcon.SetActive(false);
-//        retryIcon.SetActive(false);
+        exitIcon.SetActive(false);
+        retryIcon.SetActive(false);
         //タイトルを表示する
         panel.SetActive(true);
         title.SetActive(true);

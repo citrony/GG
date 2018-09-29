@@ -13,7 +13,7 @@ public class EnemyRotate8 : MonoBehaviour
 
     //[SerializeField] private float speed = 8.7f;
     //float intervalTime;
-    [SerializeField] private int Enemylife = 4;
+    [SerializeField] private int Enemylife = 1;
 
 
     // Use this for initialization

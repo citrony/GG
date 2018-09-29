@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Explosion: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 2}
   speed: 0
-  tyubosslife: 50
+  tyubosslife: 28
 --- !u!122 &122504246911630606
 Halo:
   m_ObjectHideFlags: 1
