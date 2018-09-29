@@ -21,7 +21,7 @@ public class FadeController : MonoBehaviour
     {
         if (alpha < 255.0f)
         {
-            alpha += 0.3f;
+            alpha += 3f;
             var color = Color.black;
             color.a = alpha / 255.0f;
             fade.material.color = color;

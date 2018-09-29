@@ -41,7 +41,8 @@ public class LaserController : MonoBehaviour {
     //両方許可
     public void LaserChange()
     {
-        laser4_1.enabled = false;
+        laser4_0.enabled = false;
+        //        laser4_1.enabled = false;
         laser4.enabled = true;
     }
 
@@ -50,7 +51,10 @@ public class LaserController : MonoBehaviour {
     {
 //        laser4_0.enabled = false;
         laser4.enabled = false;
-        fade.enabled = true;
     }
 
+    public void FadeOn()
+    {
+        fade.enabled = true;
+    }
 }

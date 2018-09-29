@@ -47,7 +47,7 @@ public class Manager : MonoBehaviour
     //スコアのUI
     private GameObject scoreUi;
     //スキップ用アイコン
-    private GameObject naviSkip;
+//    private GameObject naviSkip;
 
 
     // Use this for initialization
@@ -65,7 +65,7 @@ public class Manager : MonoBehaviour
         startIcon = startIconbox.transform.Find("start_icon").gameObject;
         timeUi = GameObject.Find("TimeUi");
         scoreUi = GameObject.Find("ScoreUi");
-        naviSkip = GameObject.Find("Naviskip");
+//        naviSkip = GameObject.Find("Naviskip");
 
 
         //パネルを非表示
@@ -74,7 +74,7 @@ public class Manager : MonoBehaviour
         yourScore.SetActive(false);
         exitIcon.SetActive(false);
         retryIcon.SetActive(false);
-        naviSkip.SetActive(false);
+//        naviSkip.SetActive(false);
 
         //タイトルのテキスト
         titleText = title.GetComponent<TextMesh>();
@@ -99,19 +99,23 @@ public class Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(5.0f);
         FindObjectOfType<NaviController>().ChangeNavi1();
-        naviSkip.SetActive(true);
-        yield return new WaitForSeconds(27.0f);
- //       if(!startIcon.SetActive())
- //       {
-            Prepstart();
- //       }
-      }
-
-    public void Prepstart()
-    {
+//        yield return new WaitForSeconds(2.0f);
         startIcon.SetActive(true);
-        naviSkip.SetActive(false);
+
+        //        naviSkip.SetActive(true);
+        //        yield return new WaitForSeconds(27.0f);
+        //       if(naviSkip.activeSelf())
+        //       {
+        //            Prepstart();
+        //       }
     }
+    /*
+        public void Prepstart()
+        {
+            startIcon.SetActive(true);
+            naviSkip.SetActive(false);
+        }
+    */
 
     //ゲームクリアNavi//→アプリ終了
     private IEnumerator ClearNavi()
@@ -119,9 +123,9 @@ public class Manager : MonoBehaviour
         scoreUi.SetActive(false);
         timeUi.SetActive(false);
         FindObjectOfType<NaviController>().ChangeNavi10();
-        FindObjectOfType<TestSoundManager>().ChangeBgm7();
-//        FindObjectOfType<LaserController>().LaserEnd();
+        FindObjectOfType<TestSoundManager>().ChangeBgm7();       
         yield return new WaitForSeconds(5.0f);
+        FindObjectOfType<LaserController>().LaserEnd();
         exitIcon.SetActive(true);
         retryIcon.SetActive(true);
         FindObjectOfType<TestSoundManager>().ChangeBgm8();
@@ -136,14 +140,20 @@ public class Manager : MonoBehaviour
         scoreUi.SetActive(false);
         FindObjectOfType<NaviController>().ChangeNavi12();
         FindObjectOfType<TestSoundManager>().ChangeBgm9();
-        //        FindObjectOfType<LaserController>().LaserEnd();
         yield return new WaitForSeconds(5.0f);
+        FindObjectOfType<LaserController>().LaserEnd();
         exitIcon.SetActive(true);
         retryIcon.SetActive(true);
         //        yield return new WaitForSeconds(19.0f);
         //        Application.Quit();
     }
 
+
+    public void Testexitretry()
+    {
+        exitIcon.SetActive(true);
+        retryIcon.SetActive(true);
+    }
 
     // Update is called once per frame
     void Update()

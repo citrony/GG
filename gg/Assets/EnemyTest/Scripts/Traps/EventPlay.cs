@@ -26,7 +26,7 @@ public class EventPlay : MonoBehaviour
         if (eventStart == true)
         {
             eventTime += Time.deltaTime;
-            if (eventTime >= 12)
+            if (eventTime >= 10)
             {
                 Instantiate(enemyEventEnd, new Vector3(30, -19, 30), Quaternion.identity);
                 eventStart = false;

@@ -50,7 +50,7 @@ public class EnemyRotate4 : MonoBehaviour
                     go.transform.parent = null;
                 }
         */
-        Destroy(this.gameObject.transform.root.gameObject, 20.0f);
+        Destroy(this.gameObject.transform.root.gameObject, 12.0f);
     }
 
     void OnTriggerEnter(Collider coll)

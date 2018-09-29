@@ -9,7 +9,7 @@ public class EnemyControlH : MonoBehaviour
     //public GameObject target;
 
 
-    [SerializeField] private float speed = 3.7f;
+    [SerializeField] private float speed = 7.7f;
     //float intervalTime;
     //[SerializeField] private int Enemylife = 2;
 
